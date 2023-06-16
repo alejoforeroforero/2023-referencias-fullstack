@@ -1,63 +1,97 @@
-    const express = require("express");
-    const bodyParser = require("body-parser");
-    const bcrypt = require("bcryptjs");
-    const { check, validationResult } = require("express-validator");
-    const mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
+const bcrypt = require("bcryptjs");
+const mongoose = require("mongoose");
+const { check, validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
 
-    const usuarioEsquema = mongoose.Schema({
-        nombre: { type: String },
-        email: { type: String },
-        password: { type: String },
+const usuarioEsquema = mongoose.Schema({
+  nombre: { type: String },
+  email: { type: String },
+  password: { type: String },
+});
+
+const usuarioModelo = mongoose.model("usuarios", usuarioEsquema);
+
+const app = express();
+app.use(bodyParser.json());
+
+app.post(
+  "/signup",
+  [
+    check("nombre").not().isEmpty(),
+    check("email").normalizeEmail().isEmail(),
+    check("password").isLength({ min: 6 }),
+  ],
+  async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.send('Hay errores');
+      return;
+    }
+
+    const { nombre, email, password } = req.body;
+
+    const usuarioDB = await usuarioModelo.findOne({ email: email });
+
+    if (usuarioDB) {
+      res.send("el usuario ya exista, haz loggin");
+
+      return;
+    }
+
+    const hashedP = await bcrypt.hash(password, 12);
+
+    const usuario = new usuarioModelo({
+      nombre,
+      email,
+      password: hashedP,
     });
 
-    const usuarioModelo = mongoose.model("usuarios", usuarioEsquema);
+    await usuario.save();
 
-    const app = express();
-    app.use(bodyParser.json());
+    res.json(usuario);
+  }
+);
 
-    app.post(
-        "/signup",
-        [
-            check("nombre").not().isEmpty(),
-            check("email").normalizeEmail().isEmail(),
-            check("password").isLength({ min: 6 }),
-        ],
-        async (req, res, next) => {
-            const errors = validationResult(req);
+app.post("/login", async (req, res, next) => {
+  const { nombre, email, password } = req.body;
 
-            if (!errors.isEmpty()) {
-                res.send("hay errores o campos vacios");
-            }
+  const usuarioDB = await usuarioModelo.findOne({ email: email });
 
-            const { nombre, email, password } = req.body;
+  if (!usuarioDB) {
+    res.send("No esiste el usuario");
+    return;
+  }
 
-            const usuarioDB = await usuarioModelo.findOne({ email: email });
+  const passwordBueno = await bcrypt.compare(password, usuarioDB.password);
 
-            if (usuarioDB) {
-                res.json("ya existe el usuario");
-                return;
-            }
+  if (!passwordBueno) {
+    res.send("El password está mal");
+    return;
+  }
 
-            const passwordHashed = await bcrypt.hash(password, 12);
+  const token = jwt.sign({ userId: usuarioDB._id }, "clave_secreta", {
+    expiresIn: "1h",
+  });
 
-            const usuarioNuevo = new usuarioModelo({
-                nombre,
-                email,
-                password: passwordHashed,
-            });
+  const usuarioData = {
+    id: usuarioDB._id,
+    nombre: usuarioDB.nombre,
+    email: usuarioDB.email,
+    token,
+  };
 
-            await usuarioNuevo.save();
+  res.json({ usuarioData });
+});
 
-            res.json(usuarioNuevo);
-        }
-    );
-
-    mongoose
-    .connect(`mongodb:\/\/localhost/app`)
-    .then(() => {
-        app.listen(5002);
-        console.log("conecto");
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+mongoose
+  .connect(`mongodb:\/\/localhost/datos`)
+  .then((req, res, next) => {
+    app.listen(3500);
+    console.log("conecto");
+  })
+  .catch((error) => {
+    console.log(error);
+  });

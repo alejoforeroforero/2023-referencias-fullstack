@@ -5,12 +5,14 @@
 ## Instalación librerías
     npm init 
 
-    npm install --save express mongoose body-parser multer
+    npm install --save express mongoose body-parser 
 
     npm install --save-dev nodemon
     "start":"nodemon app.js"
 
     npm install jsonwebtoken express-validator bcryptjs
+
+    npm install multer
     
 
 ## Git ignore
