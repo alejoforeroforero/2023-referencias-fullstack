@@ -27,6 +27,21 @@
         foo = 4;
         console.log(foo)
         var foo = 1; // 4
+
+  ## - Closures
+    function palabraSecreta() {
+      let palabra = "Hola";
+
+      return {
+        traer: () => {
+          return palabra;
+        },
+        cambiar: (nueva) => {
+          palabra = nueva;
+          return palabra;
+        },
+      };
+    }
         
    
     
