@@ -29,6 +29,9 @@
         var foo = 1; // 4
 
   ## - Closures
+
+  1. Create counter function which has increment and getValue functionallity
+  
     function palabraSecreta() {
       let palabra = "Hola";
 
