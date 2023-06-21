@@ -45,6 +45,22 @@
         },
       };
     }
+
+  ## - Currying
+
+  1. Write a function which helps to achive multiply(a)(b) and returns product of a and b
+  
+    const multiplicar = n1 => n2 => n1*n2;
+    console.log(multiplicar(8)(3));
+
+    const multiplicar2 = (a)=>{
+        return (b)=>{
+            return a*b;
+        }
+    }
+    console.log(multiplicar2(5)(3));
+
+
         
    
     
