@@ -1,10 +1,11 @@
 # 1. Core JavaScript Concepts
-  ## - Mapping
+
+## - Mapping
     1. Write code to get array of names from given array of users
     2. Get back only active users
     3. Sort users by age descending
     
- ## - Null and Undefined
+## - Null and Undefined
     1. What will be logged in first example and second example
     
         let var1;
@@ -15,7 +16,7 @@
         console.log(var2);
         console.log(typeof var2);
         
-  ## - Hoisting
+## - Hoisting
     1. var bubbles, let and const don't
       
         console.log(foo)
@@ -28,7 +29,7 @@
         console.log(foo)
         var foo = 1; // 4
 
-  ## - Closures
+## - Closures
 
   1. Create counter function which has increment and getValue functionallity
   
@@ -46,7 +47,7 @@
       };
     }
 
-  ## - Currying
+## - Currying
 
   1. Write a function which helps to achive multiply(a)(b) and returns product of a and b
   
@@ -59,6 +60,16 @@
         }
     }
     console.log(multiplicar2(5)(3));
+
+## - Array
+
+  1. Write a function which get's an array and an element and returns an array with this element at the end
+
+  2. Write a function which can concatenate 2 arrays
+  
+
+
+  
 
 
         
