@@ -1,7 +1,6 @@
 
 
 # Junio
-
 - Landing page Mi Historia
 - Terminar Mern FullStack Guide
 - Flip card App - Javascript questions y Salsa 
