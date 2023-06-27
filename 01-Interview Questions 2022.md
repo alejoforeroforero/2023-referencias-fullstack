@@ -66,6 +66,14 @@
   1. Write a function which get's an array and an element and returns an array with this element at the end
 
   2. Write a function which can concatenate 2 arrays
+
+  3. Check that user with such name exists in array of objects
+
+  4. Removes all duplicates in an array
+
+  5. Sort the array of numbers
+
+  6. Sort array of objects by author's last name
   
 
 
