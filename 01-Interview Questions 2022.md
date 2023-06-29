@@ -77,6 +77,17 @@
   5. Sort the array of numbers
 
   6. Sort array of objects by author's last name
+
+
+
+  ### (Number 3 containing word)
+
+    const chekUserByName = (lista, nombre) => {
+      return lista.some((usuario) => {
+          return usuario.Nombre.split(/\s+|\./).includes(nombre)
+      });
+    };
+    const userInDatabase = chekUserByName(usuarios, "Eblis");
   
 
 
