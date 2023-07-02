@@ -88,6 +88,21 @@
       });
     };
     const userInDatabase = chekUserByName(usuarios, "Eblis");
+
+  ### Sort by Lastname
+
+      const usersByLastName = users.sort((user, user2) => {
+      const userLastName = user.name.split(" ")[1];
+      const userLastName2 = user2.name.split(" ")[1];
+
+      if (userLastName < userLastName2) {
+        return -1;
+        } else {
+          return 1;
+        }
+      });
+
+      console.log(usersByLastName);
   
 
 

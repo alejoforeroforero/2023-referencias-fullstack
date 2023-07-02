@@ -13,6 +13,8 @@
             var res = solveMeFirst(a, b);
             console.log(res);
         }
+
+        
 2. Given an array of integers, find the sum of its elements. For example, if the array 6 1 2 3 4 10 11 so return 31
 
         function simpleArraySum(ar) {
