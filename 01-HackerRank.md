@@ -117,5 +117,49 @@
         }
 
 
-4. Calcular la diferencia en las diagonales de una matrix.
+5. Calcular la diferencia en las diagonales de una matrix.
 
+        const array = [ 
+            [1, 2, 3 ,12], 
+            [1, 8, 3, 3],
+            [1, 2, 9, -3],
+            [1, 2, 9, 5],        
+        ]
+
+Respuesta:
+
+    function calcularDierencia(arr){
+        
+        let index = 0;
+        let index2 = arr.length -1;
+        let n1 = 0;
+        let n2 = 0;
+
+        for(let i=0; i<arr.length; i++){
+
+            let fila = arr[i];
+
+            for(let j=0; j<fila.length; j++){
+
+                if(j === index){
+                    n1 += fila[j];
+                }
+
+                if(j=== index2){
+                    n2 += fila[j];
+                }
+            }
+            index2--
+            index++;
+        }
+
+        let difference = n1 - n2;
+
+        if(difference <0){
+            difference = difference*-1;
+        }
+
+        let d2 = Math.abs(n1 - n2);
+
+        console.log(d2);
+    }
