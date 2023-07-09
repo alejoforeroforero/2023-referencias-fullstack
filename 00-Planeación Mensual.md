@@ -1,21 +1,18 @@
 
 
-# Junio
-- Landing page Mi Historia
-- Terminar Mern FullStack Guide
-- Flip card App - Javascript questions y Salsa 
-- Finalizar Error Web
-
-
 # Julio
+- Landing page Mi Historia
+- Finalizar Error Web
 - Curso Full Stack Web Simplified
-- JavaScript Qiestions
-- Terminar front-end Visitante sonoro
+- JavaScript Questions
 - Curso CSS Grid Jon Mircha
-- Git hub repositorios organizados
-- Linkedin
+- Terminar front-end Visitante sonoro
+
 
 # Agosto
+
+- Git hub repositorios organizados
+- Linkedin
 - Curso React Jon Mircha
 - Curso NodeJs Jon Mircha
 - Flip card App - React
