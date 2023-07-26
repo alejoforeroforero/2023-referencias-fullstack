@@ -41,6 +41,22 @@
     1. Math.abs
     2. Establecer la cantidad de decimales de un número decimal.
 
+
+    Métodos de Number:
+    
+    Number.isFinite()
+    Number.isInteger()
+    Number.isNaN()
+    Number.isSafeInteger()
+    Number.parseFloat()
+    Number.parseInt()
+    Number.prototype.toExponential()
+    Number.prototype.toFixed()
+    Number.prototype.toLocaleString()
+    Number.prototype.toPrecision()
+    Number.prototype.toString()
+    Number.prototype.valueOf()
+
 # EJERCICIOS CON STRINGS
 
     1. Quitar el último caracter de un String
