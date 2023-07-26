@@ -163,3 +163,38 @@ Respuesta:
 
         console.log(d2);
     }
+
+6. Plus minus
+
+Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero. Print the decimal value of each fraction on a new line with  places after the decimal.
+
+Respueta:
+
+        const radios = [2, 3, 0, -3, -1]
+
+        function raidosEnLista(lista){
+
+            let pos = 0;
+            let neg = 0;
+            let zero = 0;
+
+            let radios = []
+
+            lista.forEach(numero=>{
+                if(numero>0){
+                pos++
+                }else if(numero<0){
+                neg++
+                }else{
+                zero++
+                }
+            })
+
+            const posR = pos/lista.length;
+            const negR = neg/lista.length;
+            const zerR = zero/lista.length;
+
+            console.log(posR.toFixed(6)) 
+            console.log(negR.toFixed(6)) 
+            console.log(zerR.toFixed(6))
+        }

@@ -36,10 +36,10 @@
             .map((nItem) => nItem.value);
         }
 
-## EJERCICIOS CON MATH
+## EJERCICIOS CON MATH O NÚMEROS
 
     1. Math.abs
-    2
+    2. Establecer la cantidad de decimales de un número decimal.
 
 # EJERCICIOS CON STRINGS
 
