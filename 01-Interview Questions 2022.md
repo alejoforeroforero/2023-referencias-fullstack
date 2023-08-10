@@ -1,12 +1,12 @@
 # 1. Core JavaScript Concepts
 
-## - Mapping
+## 3-Mapping
 
 1. Write code to get array of names from given array of users
 2. Get back only active users
 3. Sort users by age descending
     
-## - Null and Undefined
+## 4-Null and Undefined
 
 1. What will be logged in first example and second example
 
@@ -18,7 +18,7 @@
         console.log(var2);
         console.log(typeof var2);
         
-## - Hoisting
+## 5-Hoisting
 
 1. var bubbles, let and const don't
       
@@ -32,7 +32,7 @@
         console.log(foo)
         var foo = 1; // 4
 
-## - Closures
+## 6-Closures
 
 1. Create counter function which has increment and getValue functionallity
   
@@ -50,7 +50,7 @@
           };
         }
 
-## - Currying
+## 7-Currying
 
   1. Write a function which helps to achive multiply(a)(b) and returns product of a and b
   
@@ -64,23 +64,17 @@
     }
     console.log(multiplicar2(5)(3));
 
-## - Array
+## 8-Adding elements to an Array
 
   1. Write a function which get's an array and an element and returns an array with this element at the end
 
-  2. Write a function which can concatenate 2 arrays
+## 9-Concatenating arrays
 
-  3. Check that user with such name exists in array of objects
+  1. Write a function which can concatenate 2 arrays
 
-  4. Removes all duplicates in an array
+## 10-Check if users name exits
 
-  5. Sort the array of numbers
-
-  6. Sort array of objects by author's last name
-
-
-
-  ### (Number 3 containing word)
+  1. Check that user with such name exists in array of objects
 
     const chekUserByName = (lista, nombre) => {
       return lista.some((usuario) => {
@@ -89,25 +83,48 @@
     };
     const userInDatabase = chekUserByName(usuarios, "Eblis");
 
-  ### Sort by Lastname
+## 11-Check if users name exits
+
+  1. Removes all duplicates in an array
+
+  function quitarDuplicados(array){
+    return [...new Set(array)];
+  }
+
+## 12-Sorting an array
+
+  1. Sort the array of numbers
+
+  2. Sort array of objects by author's last name
 
       const usersByLastName = users.sort((user, user2) => {
-      const userLastName = user.name.split(" ")[1];
-      const userLastName2 = user2.name.split(" ")[1];
+        const userLastName = user.name.split(" ")[1];
+        const userLastName2 = user2.name.split(" ")[1];
 
-      if (userLastName < userLastName2) {
-        return -1;
+        if (userLastName < userLastName2) {
+          return -1;
         } else {
           return 1;
         }
       });
 
       console.log(usersByLastName);
+
+## 14-Range function
+
+1. Write a function tha create a range, ex: range(4, 40);
+
+    function range(start, end){
+      return [...Array(end-start+1).keys()].map(el=> el + start);
+    }
+
+## 15-Shuffle an array
+
+## 16-Number of Ocurrences
+
+    const valorMin = Math.min(...array);
+    const nVeces = numeros.filter(numero=> numero === valorMin);
   
-
-
-  
-
 
         
    
