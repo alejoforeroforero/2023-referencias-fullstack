@@ -114,16 +114,24 @@
 
 1. Write a function tha create a range, ex: range(4, 40);
 
-    function range(start, end){
-      return [...Array(end-start+1).keys()].map(el=> el + start);
-    }
+       function range(start, end){
+         return [...Array(end-start+1).keys()].map(el=> el + start);
+       }
 
 ## 15-Shuffle an array
 
+- Respuesta:
+
+
+
 ## 16-Number of Ocurrences
 
-    const valorMin = Math.min(...array);
-    const nVeces = numeros.filter(numero=> numero === valorMin);
+- Find the number of occurences of minimum value in the list
+
+
+      const valorMin = Math.min(...array);
+
+      const n = numeros.filter(number => number === minVal).length;
   
 
         
