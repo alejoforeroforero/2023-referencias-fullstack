@@ -1,26 +1,24 @@
-
-
-# Julio
-- Landing page Mi Historia
-- Finalizar Error Web
-- Curso Full Stack Web Simplified
-- JavaScript Questions
+# Septiembre
+- Curso JavaScript Questions
 - Curso CSS Grid Jon Mircha
+- Curso NodeJs Jon Mircha
 - Terminar front-end Visitante sonoro
 
 
-# Agosto
-
+# Octubre
+- Empezar Proyecto Documental Web
+- HackerRank
 - Git hub repositorios organizados
 - Linkedin
 - Curso React Jon Mircha
-- Curso NodeJs Jon Mircha
 - Flip card App - React
 
 
-# Septiembre
+# Noviembre
+- Avances Documental Web
 - Comenzar a aplicar a trabajos
-- Postgres¿?
-- Flip Cards en Postgres ¿?
-- Curso JavaScript the Complete Guide
+- Presentar prueba de Turing
+
+# Diciembre
+- Terminar Documental Web
 
