@@ -18,6 +18,8 @@
 - Avances Documental Web
 - Comenzar a aplicar a trabajos
 - Presentar prueba de Turing
+- Presentar prueba de proxify
+
 
 # Diciembre
 - Terminar Documental Web
