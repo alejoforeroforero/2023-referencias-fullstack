@@ -2,6 +2,8 @@
 
 - https://www.digitalocean.com/ (El que usa Jon Mircha)
 
+- https://fly.io/
+
 
 # Hosting Virtuales
 
