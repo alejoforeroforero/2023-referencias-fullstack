@@ -68,9 +68,19 @@
 
   1. Write a function which get's an array and an element and returns an array with this element at the end
 
+
+    const append = (arr, el){
+      return = [...arr, el];
+    }
+
+
 ## 9-Concatenating arrays
 
   1. Write a function which can concatenate 2 arrays
+
+          const mezclarListas = (l1, l2)=>{
+            return [...l1, ...l2];
+          }
 
 ## 10-Check if users name exits
 
@@ -83,13 +93,13 @@
     };
     const userInDatabase = chekUserByName(usuarios, "Eblis");
 
-## 11-Check if users name exits
+## 11-Remove all duplicates in an array
 
   1. Removes all duplicates in an array
 
-  function quitarDuplicados(array){
-    return [...new Set(array)];
-  }
+         function quitarDuplicados(array){
+           return [...new Set(array)];
+         }
 
 ## 12-Sorting an array
 
@@ -97,18 +107,18 @@
 
   2. Sort array of objects by author's last name
 
-      const usersByLastName = users.sort((user, user2) => {
-        const userLastName = user.name.split(" ")[1];
-        const userLastName2 = user2.name.split(" ")[1];
+          const usersByLastName = users.sort((user, user2) => {
+            const userLastName = user.name.split(" ")[1];
+            const userLastName2 = user2.name.split(" ")[1];
 
-        if (userLastName < userLastName2) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
+            if (userLastName < userLastName2) {
+              return -1;
+            } else {
+              return 1;
+            }
+          });
 
-      console.log(usersByLastName);
+          console.log(usersByLastName);
 
 ## 14-Range function
 
@@ -123,7 +133,6 @@
 - Respuesta:
 
 
-
 ## 16-Number of Ocurrences
 
 - Find the number of occurences of minimum value in the list
@@ -134,6 +143,69 @@
       const n = numeros.filter(number => number === minVal).length;
   
 
+## 17-This
+
+What will be logged here?
+
+    function getItem(){
+      console.log(this)
+    }
+    getItem();
+
+And here?
+
+      const item = {
+        title:"Ball",
+        getItem(){
+          console.log("this", this);
+        }
+      }
+
+      item.getItem()
+
+And here?
+
+      class Item{
+        title ="Ball"
+
+        getItem(){
+          console.log("this", this);
+        }
+      }
+
+      const item = new Item();
+      item.getItem();
+
+And with a function inside a method?
+
+      class Item{
+        title ="Ball"
+
+        getItem(){
+          function someFn(){
+            console.log("this", this);
+          }
+          someFn();
+        }
+      }
+
+      const item = new Item();
+      item.getItem();
+
+to get the instance, use arrow functions:
+
+      class Item{
+        title ="Ball"
+
+        getItem(){
+          [1, 2, 3].map(()=>{
+              console.log(this);
+          })
+        }
+      }
+
+      const item = new Item();
+      item.getItem();
         
    
     
