@@ -207,5 +207,78 @@ to get the instance, use arrow functions:
       const item = new Item();
       item.getItem();
         
-   
+   ## 18-Classes
+
+   Design a class for employee which takes id and name in during construction of object and has a salary property
+
+          class Employee{
+          
+          constructor(id, name){
+
+            if(!id || !name){
+              throw new Error('id and name are required');
+            }
+
+            this.id = id;
+            this.name = name
+          }
+
+          setSalary(salary){
+            this.salary = salary;
+          }
+
+          getSalary(){
+            return this.salary;
+          }
+
+          getId(){
+            return this.id;
+          }
+
+          getName(){
+            return this.name;
+          }
+        }
+
+Design a class for Manager which is employee and can have department property
+
+        class Employee{
+          constructor(id, name){
+
+            if(!id || !name){
+              throw new Error('id and name are required');
+            }
+
+            this.id = id;
+            this.name = name
+          }
+
+          setSalary(salary){
+            this.salary = salary;
+          }
+
+          getSalary(){
+            return this.salary;
+          }
+
+          getId(){
+            return this.id;
+          }
+
+          getName(){
+            return this.name;
+          }
+        }
+
+        class Manager extends Employee{
+          setDepartment(department){
+            this.department = department;
+          }
+
+          getDepartment(){
+            return this.department;
+          }
+        }
+
+
     
