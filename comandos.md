@@ -1,0 +1,7 @@
+- mongosh
+- show collections
+- use database*
+- db.usuarios.insert({nombre: "Juan"})
+- db.usuarios.find()
+- use database*
+- db.dropDatabase()
