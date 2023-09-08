@@ -67,3 +67,4 @@
     6. Existe el unshift
     7. ¿Cómo funciona el join?
     8. ¿Cómo funciona el call?
+    9. Quitar espacios al principio y al final

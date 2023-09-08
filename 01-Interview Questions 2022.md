@@ -282,4 +282,25 @@ Design a class for Manager which is employee and can have department property
 
 ## 19-Prototypes
 
+    var Empleado = function(id, name){
+      if(!id || !name){
+        alert("el id y el name son requeridos");
+        return;
+      }
+    }
+
+    Empleado.prototype.setSalary = function(salary){
+      this.salary = salary;
+    }
+
+    Empleado.prototype.getSalary = function(){
+      if(this.salary){
+        return this.salary;
+      }else{
+        return 0;
+      }
+    }
+
+    const empleado = new Empleado(1, "Alejandro");
+
     

@@ -1,0 +1,5 @@
+- str.trim(); 
+- str.replaceAll('dog', 'monkey')
+- str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+- str.toLowerCase()
+- str.replace(/[^a-zA-Z0-9-_]/g, '') ->Para quitar los caracteres no deseados
