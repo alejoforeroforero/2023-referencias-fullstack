@@ -303,4 +303,10 @@ Design a class for Manager which is employee and can have department property
 
     const empleado = new Empleado(1, "Alejandro");
 
-    
+## 20-Recomendaciones
+
+## 21-Modules
+
+Create a es6 module with function getName, getSurname, and default export getFullName
+
+Create the same with commonJS module
