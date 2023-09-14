@@ -310,3 +310,244 @@ Design a class for Manager which is employee and can have department property
 Create a es6 module with function getName, getSurname, and default export getFullName
 
 Create the same with commonJS module
+
+## 22-Debounce
+
+## 23-Throttel
+
+
+# 2. Working with DOM
+
+## 1-Highlight all of the words over 8 characters long in the paragraph text with yellow background
+
+## 2-add a link to de DOM
+
+## 3-Split sentence in ". "
+
+
+# 3. Asynchronous Javascript
+
+## 1 - Write an example of fetching data with XMLHttpRequest
+
+    const apiUrl = "https://api.github.com/users/alejoforeroforero/repos";
+    const cssUrl = "./main.css";
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", cssUrl);
+    xhr.send();
+    xhr.onload = function () {
+      if (xhr.status !== 200) {
+        console.log("Error" + xhr.status + xhr.statusText);
+      } else {
+        console.log(xhr.response);
+
+        const style = document.createElement("style");
+        style.rel = "stylesheet";
+        style.innerHTML = this.responseText;
+        document.getElementsByTagName("head")[0].appendChild(style);
+      }
+    };
+    xhr.onerror = function(){
+      console.log("falló el request");
+    }
+
+
+## 2 - Write an example of fetching data with Fetch API
+
+    const apiUrl = "https://api.github.com/users/alejoforeroforero/repos";
+    const cssUrl = "./main.css";
+
+    fetch(cssUrl)
+      .then((res) => res.text())
+      .then((data) => {
+        const style = document.createElement("style");
+        style.rel = "stylesheet";
+        style.innerHTML = data;
+        document.getElementsByTagName("head")[0].appendChild(style);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+## 3 - Basic callback
+
+
+## 4 - List of asynchronous functions
+
+    const asyncFunc1 = (callback)=>{
+      setTimeout(()=>{
+        callback(1)
+      }, 3000);
+    }
+
+    const asyncFunc2 = (callback)=>{
+      setTimeout(()=>{
+        callback(2)
+      }, 2000);
+    }
+
+    const asyncFunc3 = (callback)=>{
+      setTimeout(()=>{
+        callback(3)
+      }, 1000);
+    }
+
+    const asyncParallel = (asyncFuncs, callback)=>{
+      const resultArray = new Array(asyncFuncs.length);
+
+      let resultCounter = 0;
+
+      asyncFuncs.forEach((asyncFunc, index)=>{
+        asyncFunc((value)=>{
+          resultArray[index] = value;
+          resultCounter++
+
+          if(resultCounter >= asyncFuncs.length){
+            callback(resultArray)
+          }
+        })
+      })
+    }
+
+    const lista = [asyncFunc1, asyncFunc2, asyncFunc3];
+
+    const imprimir = (data)=>{
+      console.log(data);
+    }
+
+    asyncParallel(lista, imprimir);
+
+
+## 5 - Convert callback to Promise
+
+    const asyncFunc1 = (callback) => {
+      setTimeout(() => {
+        callback(1);
+      }, 1000);
+    };
+
+    const promisifyAsyncFunc = () => {
+      return new Promise((resolve) => {
+        asyncFunc1((data) => {
+          resolve(data);
+        });
+      });
+    };
+
+    promisifyAsyncFunc().then((data) => {
+      console.log(data);
+    });
+
+## 6 - map in Promises
+
+      const users = [
+        {
+          id: 1,
+          name: "Alejo",
+        },
+        {
+          id: 2,
+          name: "Patu",
+        },
+        {
+          id: 3,
+          name: "Iñaki",
+        },
+      ];
+
+      const userStatus = [
+        {
+          id: 1,
+          isActive: true,
+        },
+        {
+          id: 2,
+          isActive: true,
+        },
+        {
+          id: 3,
+          isActive: false,
+        },
+      ];
+
+      const getUsers = () => {
+        return new Promise((resolve) => {
+          resolve(users);
+        });
+      };
+
+      const getStatus = () => {
+        return new Promise((resolve) => {
+          resolve(userStatus);
+        });
+      };
+
+      const mapUsers = (users, UStatus) => {
+        return users.map((user) => {
+          const isActive = userStatus.find((userS) => userS.id == user.id).isActive;
+          return { ...user, isActive };
+        });
+      };
+
+      Promise.all([getUsers(), getStatus()])
+        .then(([users, usersStatus]) => mapUsers(users, usersStatus))
+        .then(lista=>{
+          console.log(lista);
+        })
+        
+## 7 async await
+
+      const getMappedUsers = async () => {
+        try {
+          const users = await getUsers();
+          const userStatus = await getStatus();
+
+          const mappendUsers = users.map((user) => {
+            const isActive = userStatus.find((userS) => userS.id == user.id).isActive;
+            return { ...user, isActive };
+          });
+
+          console.log(mappendUsers);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      getMappedUsers();
+
+Otro ejemplo con await:
+
+      const traerCss = (url) => {
+        return new Promise((resolve) => {
+          fetch(url)
+            .then((res) => res.text())
+            .then((data) => {
+              const style = document.createElement("style");
+              style.rel = "stylesheet";
+              style.innerHTML = data;
+              document.getElementsByTagName("head")[0].appendChild(style);
+
+              resolve();
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
+      };
+
+      const pintarInfo = async () => {
+        const cssUrl = "./main.css";
+
+        try {
+          const css = await traerCss(cssUrl);
+          continuar();
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      pintarInfo();
+
+      const continuar = () => {
+        debugger;
+      };
