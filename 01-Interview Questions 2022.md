@@ -324,6 +324,8 @@ Create the same with commonJS module
 
 ## 3-Split sentence in ". "
 
+## 4-Event delegation
+
 
 # 3. Asynchronous Javascript
 
@@ -551,3 +553,20 @@ Otro ejemplo con await:
       const continuar = () => {
         debugger;
       };
+
+# 5 Task Interview
+
+## 1 Fibonacci
+
+## 2 palindrome
+
+      const checkPalindrome = (str) => {
+        const word = str
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+
+        return word === word.split("").reverse().join("");
+      };
+
+      const isPalindrome = checkPalindrome("oró");
