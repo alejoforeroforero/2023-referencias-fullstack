@@ -371,6 +371,18 @@ Create the same with commonJS module
         console.log(error);
       });
 
+Using asycn await:
+
+    const fetchData = async(url)=>{
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    }
+
+    const data = await fetchData(apiUrl)
+
+    console.log(data);
+
 ## 3 - Basic callback
 
 
@@ -558,7 +570,7 @@ Otro ejemplo con await:
 
 ## 1 Fibonacci
 
-## 2 palindrome
+## 2 Palindrome
 
       const checkPalindrome = (str) => {
         const word = str
@@ -570,3 +582,45 @@ Otro ejemplo con await:
       };
 
       const isPalindrome = checkPalindrome("oró");
+
+## 3 Anagram
+
+## 4 Count vowels
+
+    const str1 = "Este es un texto al cual se le van a contar las vocales";
+    const str2 = "Alejo";
+
+    const countVowels = (str) => {
+      const vowels = ["a", "e", "i", "o", "u"];
+
+      return str
+        .toLowerCase()
+        .split("")
+        .reduce((acc, char) => {
+          debugger;
+          return vowels.includes(char) ? acc + 1 : acc;
+        }, 0);
+    };
+
+    const nV = countVowels(str1);
+
+    console.log(nV);
+
+# 5 Task from every day work
+
+## 1 Convert to title case
+
+    const str1 = "Este es un texto al cual se le van a contar las vocales";
+    const str2 = "Alejo";
+
+    const titleCase = (str) => {
+      return str
+        .toLowerCase()
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    };
+
+    const newText = titleCase(str1);
+
+    console.log(newText, str1);
