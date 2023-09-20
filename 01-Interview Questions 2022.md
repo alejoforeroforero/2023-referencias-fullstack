@@ -624,3 +624,20 @@ Otro ejemplo con await:
     const newText = titleCase(str1);
 
     console.log(newText, str1);
+
+## 2 Convert to 24 hours
+
+const convertTo24HrsFormat = (str) => {
+  const strLowCase = str.toLowerCase();
+  let [hours, min] = strLowCase.split(":");
+
+  if (min.endsWith("am")) {
+    hours = hours === "12" ? "0" : hours;
+  } else {
+    hours = hours === "12" ? hours : String(+hours + 12);
+  }
+
+  return hours.padStart(2, 0) + ":" + min.slice(0, -2).padStart(2, 0);
+};
+
+const t = convertTo24HrsFormat("5:10PM");
