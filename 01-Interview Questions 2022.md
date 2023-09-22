@@ -641,3 +641,73 @@ const convertTo24HrsFormat = (str) => {
 };
 
 const t = convertTo24HrsFormat("5:10PM");
+
+## 3 Map data to frontend format. The main element is location key and we need to map all data to it. We will have 5 objects at the end.
+
+    const loc = [
+      {
+        location_key: [32, 22, 11],
+        autoassign: 1,
+      },
+      {
+        location_key: [41, 42],
+        autoassign: 1,
+      },
+    ];
+
+    const bulkConfig = [
+      {
+        dataValues: {
+          config_key: 100,
+        },
+      },
+      {
+        dataValues: {
+          config_key: 200,
+        },
+      },
+    ];
+
+Mi Solución:
+
+      const arreglarData = ()=>{
+
+          let list = []
+
+          loc.map((location, index) => {
+            const configKey = bulkConfig[index].dataValues.config_key
+            location.location_key.map((locId)=>{
+
+              const obj = {
+                locationKey: locId,
+                configKey,
+                autoassign:location.autoassign,       
+              } 
+          
+              list.push(obj);
+            })
+          })
+
+          return list;
+        }
+
+        const data = arreglarData();
+
+Solución del video:
+
+      const arreglarData = () => {
+        return loc
+          .map((locEl, index) => {
+            return locEl.location_key.map((locatonKey) => {
+              return {
+                location_key: locatonKey,
+                config_key: bulkConfig[index].dataValues.config_key,
+                autoassign: locEl.autoassign,
+              };
+            });
+          })
+          .reduce((arr, acc) => arr.concat(acc), []);
+      };
+
+      const data = arreglarData();
+
