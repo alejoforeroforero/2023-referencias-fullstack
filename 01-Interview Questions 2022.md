@@ -711,3 +711,161 @@ Solución del video:
 
       const data = arreglarData();
 
+
+## 4 Write a function to Replace parameters in url
+
+    const initialUrl = "/posts/:postId/comments/:commentId";
+
+    const resultUrl = replaceParamsInUrl(initialUrl, [
+      { from: "postId", to: "1" },
+      { from: "commentId", to: "3" },
+    ]);
+    console.log(resultUrl);
+
+Mi respuesta:
+
+      const replaceParamsInUrl = (url, list)=>{
+        var finalUrl = url;
+
+        list.map(obj =>{
+          finalUrl = finalUrl.replace(`:${obj.from}`, obj.to);
+        })
+
+        return finalUrl;
+      }
+
+Respuesta del video:
+
+      const replaceParamsInUrl = (url, list)=>{
+        return list.reduce((acc, value)=>{
+          return acc.replace(":" + value.from, value.to)
+        }, url)
+      }
+
+## 5 Format backend validation message to frontend format
+
+    const backendErrors = {
+      email: {
+        errors: [
+          {
+            message: "Can't be blank",
+          },
+        ],
+      },
+      password: {
+        errors: [
+          {
+            message: "Must contain symbols in different case",
+          },
+          {
+            message: "Must be at least 8 symbols length",
+          },
+        ],
+      },
+      passwordConfirmation: {
+        errors: [
+          {
+            message: "Must match with password",
+          },
+        ],
+      },
+    };
+
+["Email: Can't be blank", "Password: Must contain symbols, Must be at least 8 symbols", "passwordConfirmation: Must match with password"]
+
+mi respuesta:
+
+    const formatErrors = (errorsList) => {
+      let errorsFormatted = [];
+
+      for (const errorObj in errorsList) {
+        let errorMsg = errorObj + ": ";
+
+        errorsList[errorObj].errors.map((error, index) => {
+          errorMsg +=
+            index === errorsList[errorObj].errors.length - 1
+              ? error.message
+              : (errorMsg += error.message + ", ");
+        });
+
+        errorsFormatted.push(errorMsg);
+      }
+
+      return errorsFormatted;
+    };
+
+    const errors = formatErrors(backendErrors);
+
+    console.log(errors);
+
+respuesta video:
+
+    const formatErrors = (errorsList) => {
+        return Object.entries(errorsList).map(([field, errorObj], index) =>{
+          const msg = errorObj.errors.map((error) => error.message).join(", ")
+
+          return msg;
+        })
+        }
+
+      const errorsF = formatErrors(backendErrors);
+
+      console.log(errorsF)
+
+## 6.6 Flat list to nested list
+
+// Transform flat list to nested list
+
+      const flatList = [
+      {
+        id: 1,
+        name: "lvl 1 item 1",
+        parentId: null,
+      },
+      {
+        id: 2,
+        name: "lvl 1 item 2",
+        parentId: null,
+      },
+      {
+        id: 3,
+        name: "lvl 2 item 3",
+        parentId: 1,
+      },
+      {
+        id: 4,
+        name: "lvl 3 item 4",
+        parentId: 3,
+      },
+      {
+        id: 5,
+        name: "lvl 2 item 5",
+        parentId: 2,
+      },
+    ];
+
+    //[
+    // {
+    //    id: 1,
+    //    children: [
+    //      {
+    //        id: 3,
+    //        children: [
+    //          {
+    //            id: 4,
+    //            children: []
+    //          }
+    //        ]
+    //      }
+    //    ]
+    // },
+    // {
+    //    id: 2,
+    //    children: [
+    //      {
+    //        id: 5,
+    //        children: []
+    //      }
+    //    ]
+    // }
+    //]
