@@ -1,9 +1,3 @@
-# Septiembre
-- Curso JavaScript Questions
-- Curso CSS Grid Jon Mircha
-- Curso NodeJs Jon Mircha
-- Terminar front-end Visitante sonoro
-
 
 # Octubre
 - Empezar Proyecto Documental Web
