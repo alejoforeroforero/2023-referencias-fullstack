@@ -318,18 +318,18 @@ Create the same with commonJS module
 
 # 2. Working with DOM
 
-## 1-Highlight all of the words over 8 characters long in the paragraph text with yellow background
+## 2.1-Highlight all of the words over 8 characters long in the paragraph text with yellow background
 
-## 2-add a link to de DOM
+## 2.2-add a link to de DOM
 
-## 3-Split sentence in ". "
+## 2.3-Split sentence in ". "
 
-## 4-Event delegation
+## 2.4-Event delegation
 
 
 # 3. Asynchronous Javascript
 
-## 1 - Write an example of fetching data with XMLHttpRequest
+## 3.1 - Write an example of fetching data with XMLHttpRequest
 
     const apiUrl = "https://api.github.com/users/alejoforeroforero/repos";
     const cssUrl = "./main.css";
@@ -354,7 +354,7 @@ Create the same with commonJS module
     }
 
 
-## 2 - Write an example of fetching data with Fetch API
+## 3.2 - Write an example of fetching data with Fetch API
 
     const apiUrl = "https://api.github.com/users/alejoforeroforero/repos";
     const cssUrl = "./main.css";
@@ -383,10 +383,10 @@ Using asycn await:
 
     console.log(data);
 
-## 3 - Basic callback
+## 3.3 - Basic callback
 
 
-## 4 - List of asynchronous functions
+## 3.4 - List of asynchronous functions
 
     const asyncFunc1 = (callback)=>{
       setTimeout(()=>{
@@ -432,7 +432,7 @@ Using asycn await:
     asyncParallel(lista, imprimir);
 
 
-## 5 - Convert callback to Promise
+## 3.5 - Convert callback to Promise
 
     const asyncFunc1 = (callback) => {
       setTimeout(() => {
@@ -452,7 +452,7 @@ Using asycn await:
       console.log(data);
     });
 
-## 6 - map in Promises
+## 3.6 - map in Promises
 
       const users = [
         {
@@ -509,7 +509,7 @@ Using asycn await:
           console.log(lista);
         })
         
-## 7 async await
+## 3.7 async await
 
       const getMappedUsers = async () => {
         try {
@@ -568,9 +568,9 @@ Otro ejemplo con await:
 
 # 5 Task Interview
 
-## 1 Fibonacci
+## 5.1 Fibonacci
 
-## 2 Palindrome
+## 5.2 Palindrome
 
       const checkPalindrome = (str) => {
         const word = str
@@ -583,9 +583,9 @@ Otro ejemplo con await:
 
       const isPalindrome = checkPalindrome("oró");
 
-## 3 Anagram
+## 5.3 Anagram
 
-## 4 Count vowels
+## 5.4 Count vowels
 
     const str1 = "Este es un texto al cual se le van a contar las vocales";
     const str2 = "Alejo";
@@ -606,9 +606,18 @@ Otro ejemplo con await:
 
     console.log(nV);
 
-# 5 Task from every day work
+# 6 Task from every day work
 
-## 1 Convert to title case
+## 6.1 Convert to title case
+Write a function to convert a string to title case
+
+Provided test cases
+titleCase(“I’m a little tea pot”) should return a string.
+titleCase(“I’m a little tea pot”) should return “I’m A Little Tea Pot”.
+titleCase(“sHoRt AnD sToUt”) should return “Short And Stout”.
+titleCase(“HERE IS MY HANDLE HERE IS MY SPOUT”) should return “Here Is My Handle Here Is My Spout”.
+
+Respuesta:
 
     const str1 = "Este es un texto al cual se le van a contar las vocales";
     const str2 = "Alejo";
@@ -625,7 +634,18 @@ Otro ejemplo con await:
 
     console.log(newText, str1);
 
-## 2 Convert to 24 hours
+## 6.2 Convert to 24 hours
+
+Write a function which can convert the time input given in 12 hours format to 24 hours format
+
+convertTo24HrsFormat("12:10AM");    // 00:10
+convertTo24HrsFormat("5:00AM");     // 05:00
+convertTo24HrsFormat("12:33PM");    // 12:33
+convertTo24HrsFormat("01:59PM");    // 13:59
+convertTo24HrsFormat("11:8PM");     // 23:08
+convertTo24HrsFormat("10:02PM");    // 22:02
+
+Respuesta:
 
     const convertTo24HrsFormat = (str) => {
       const strLowCase = str.toLowerCase();
@@ -642,7 +662,7 @@ Otro ejemplo con await:
 
 const t = convertTo24HrsFormat("5:10PM");
 
-## 3 Map data to frontend format. The main element is location key and we need to map all data to it. We will have 5 objects at the end.
+## 6.3 Map data to frontend format. The main element is location key and we need to map all data to it. We will have 5 objects at the end.
 
     const loc = [
       {
@@ -667,6 +687,8 @@ const t = convertTo24HrsFormat("5:10PM");
         },
       },
     ];
+
+// [{config_key: 100, location_key: 32, autoassign: 1}, {config_key: 100, location_key: 22, autoassign: 1}]
 
 Mi Solución:
 
@@ -712,7 +734,7 @@ Solución del video:
       const data = arreglarData();
 
 
-## 4 Write a function to Replace parameters in url
+## 6.4 Write a function to Replace parameters in url
 
     const initialUrl = "/posts/:postId/comments/:commentId";
 
@@ -742,7 +764,7 @@ Respuesta del video:
         }, url)
       }
 
-## 5 Format backend validation message to frontend format
+## 6.5 Format backend validation message to frontend format
 
     const backendErrors = {
       email: {
