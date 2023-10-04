@@ -320,6 +320,26 @@ Create the same with commonJS module
 
 ## 2.1-Highlight all of the words over 8 characters long in the paragraph text with yellow background
 
+Respuesta:
+
+      const selectWords = (p)=>{
+        let newText = p.innerText;
+
+        newText = newText.split(" ").map(word =>{
+          if(word.length > 8){
+            return `<span style="background-color:yellow">${word}</span> ` 
+          }else{
+            return word 
+          }
+        }).join(" ")
+
+        p.innerHTML = newText;
+      }
+
+      const p = document.querySelector("p");
+
+      selectWords(p);
+
 ## 2.2-add a link to de DOM
 
 ## 2.3-Split sentence in ". "
@@ -820,6 +840,30 @@ mi respuesta:
 
     console.log(errors);
 
+Otra respuesta:
+
+      const formatErrors = () => {
+        let list = [];
+
+        for (const key in backendErrors) {
+          let error = key.charAt(0).toUpperCase() + key.slice(1) + ": ";
+
+          const msg = backendErrors[key].errors
+            .map((error) => error.message)
+            .join(", ");
+
+          error += msg;
+
+          list.push(error);
+        }
+
+        return list;
+      };
+
+      const errorsList = formatErrors();
+
+      console.log(errorsList);
+
 respuesta video:
 
     const formatErrors = (errorsList) => {
@@ -891,3 +935,26 @@ respuesta video:
     //    ]
     // }
     //]
+
+Respuesta:
+
+      const addChild = (item)=>{
+        const childrens = flatList.filter(nItem => nItem.parentId === item.id)
+
+        let list = []
+
+        if(childrens.length > 0){
+          list = childrens.map((child) => addChild(child))
+        }
+
+        const newObj={
+          id:item.id,
+          childrens:list
+        }
+
+        return newObj;
+      }
+
+
+
+      const nestedList = flatList.filter(item => item.parentId === null).map(addChild)
