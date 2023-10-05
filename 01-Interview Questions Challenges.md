@@ -590,7 +590,67 @@ Otro ejemplo con await:
 
 ## 5.1 Fibonacci
 
+// Design a function which returns a fibonacci sequence value
+// The Fibonacci sequence is the integer sequence where the first two terms are 0 and 1. After that, the next term is defined as the sum of the previous two terms. Hence, the nth term is the sum of (n-1)th term and (n-2)th term.
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144;
+
+
+Mi respuesta:
+
+    const createSeq = (length)=>{
+
+        let seq = [];
+
+        for(let i=0; i<length+1;i++)
+        {
+            let number = 0;
+
+            if(i<2){
+                number = i
+            }else{
+                number = seq[i-1] + seq[i-2]; 
+            }
+
+            seq.push(number);
+        }
+
+        return seq;
+    }
+
+
+    const fibonnaci = createSeq(8);
+
+Respuesta del video:
+
+    const fibonacci = (n) => {
+      if (n < 2) {  
+        return 1;
+      } else {
+        return fibonacci(n - 2) + fibonacci(n - 1);
+      }
+    };
+
+const f = fibonacci(7);
+
+
 ## 5.2 Palindrome
+
+// Write a function which checks if string is a palindrome
+
+Mi respuesta:
+
+      const checkIfPalindrome = (word) => {
+        const letters = word.toLowerCase().split("");
+
+        return word.toLowerCase() === letters.reverse().join("");
+      };
+
+      const isPalindrome = checkIfPalindrome("OsA");
+
+      console.log(isPalindrome);
+
+
+Respuesta del video
 
       const checkPalindrome = (str) => {
         const word = str
@@ -604,6 +664,47 @@ Otro ejemplo con await:
       const isPalindrome = checkPalindrome("oró");
 
 ## 5.3 Anagram
+
+// Write a function which checks if string is an anagram
+
+// Anagrams are words that have the same characters in the same quantity. This means that two strings are anagrams if we can rearrange one to get the other.
+// Here are some examples of words that are anagrams.
+// “listen” and “silent”
+// “rail safety” and “fairy tales”
+// “dormitory” and “dirty room”
+// “the eyes” and “they see”
+
+Mi respuesta:
+
+    const checkIfAnagram = (w1, w2) => {
+      const w1F = w1.trim().toLowerCase();
+      const w2F = w2.trim().toLowerCase();
+
+      return w1F.split("").sort().join("") === w2F.split("").sort().join("");
+    };
+
+    const isAnagram = checkIfAnagram("Listen", "silent");
+
+Respuesta del video:
+
+    const checkIfAnagram = (w1, w2) => {
+      if (w1.length !== w2.length) {
+        return false;
+      }
+
+      const w1F = w1.trim().toLowerCase();
+      const w2F = w2.trim().toLowerCase();
+
+      if (w1F === w2F) {
+        return false;
+      }
+
+      return w1F.split("").sort().join("") === w2F.split("").sort().join("");
+    };
+
+    const isAnagram = checkIfAnagram("Listen", "listen");
+
+
 
 ## 5.4 Count vowels
 
@@ -958,3 +1059,39 @@ Respuesta:
 
 
       const nestedList = flatList.filter(item => item.parentId === null).map(addChild)
+
+# 7 Task from the internet
+
+## 7.1 Reverse alphabet but not symbols
+
+a-bC-dEf=ghlj!! 
+oso.mama
+
+    const reverseWord = (text) => {
+      const textArray = text.split("");
+
+      let alphabet = [];
+      let symbols = [];
+
+      textArray.map((char, index) => {
+        if (char.toLowerCase() === char.toUpperCase()) {
+          const symbol = {
+            char,
+            index,
+          };
+          symbols.push(symbol);
+        } else {
+          alphabet.push(char);
+        }
+      });
+
+      let alphabetInvert = alphabet.reverse();
+
+      symbols.map(symbol =>{
+        alphabetInvert.splice(symbol.index, 0, symbol.char);
+      })
+
+      return alphabetInvert.join("");
+    };
+
+    const newWord = reverseWord("a-bC-dEf=ghlj!!");
