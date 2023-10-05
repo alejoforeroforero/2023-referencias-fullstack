@@ -1,3 +1,7 @@
+# Empresas
+- Turing
+- Proxify
+- Strider: https://www.onstrider.com/
 
 # Octubre
 - Empezar Proyecto Documental Web
@@ -7,17 +11,18 @@
 - Presentar prueba de Turing
 - Git hub repositorios organizados
 - Linkedin
-- Project React Udemy
-- Flip card App - React
+
 
 
 # Noviembre
-- Curso CSS Grid Jon Mircha
-- Curso NodeJs Jon Mircha
+- Project React Udemy
+- Flip card App - React
 - Avances Documental Web
 - Presentar prueba de proxify
 
 
 # Diciembre
 - Terminar Documental Web
+- Curso CSS Grid Jon Mircha
+- Curso NodeJs Jon Mircha
 
