@@ -1095,3 +1095,67 @@ oso.mama
     };
 
     const newWord = reverseWord("a-bC-dEf=ghlj!!");
+
+## 7.2 Convert milliseconds to time format
+
+## 7.3 Use Promise to wait for audio data
+
+    import { audioSrc } from "./variables.js";
+
+    const traerAudioData = (url)=>{
+      let audio = new Audio();
+      document.body.appendChild(audio);
+
+      return new Promise(resolve=>{
+        audio.src = url;
+        audio.addEventListener("loadeddata", ()=>{
+          const duration = audio.duration;
+          resolve(duration)
+        })
+      })
+    }
+
+    const duration = await traerAudioData(audioSrc).then(data=> data);
+
+    console.log(duration);
+
+## 7.4 Valid Substring
+
+const k = "abcdddeeeeaabbbcdhhhaopppppp";
+
+const y = "baaasooo";
+
+const getIndices = (text) => {
+  const tArray = text.toLowerCase().split("");
+
+  let counter = 0;
+  let lastValue = null;
+
+  let validSubstringIndices = [];
+
+  tArray.map((letter, index) => {
+    if (letter === lastValue) {
+      counter++;
+      if (tArray.length === index + 1) {
+        if (counter > 1) {
+          const indices = [index - counter, index];
+          validSubstringIndices.push(indices);
+        }
+      }
+    } else {
+      if (counter > 1) {
+        const indices = [index - counter - 1, index - 1];
+        validSubstringIndices.push(indices);
+      }
+      counter = 0;
+    }
+
+    lastValue = letter;
+  });
+
+  return validSubstringIndices;
+};
+
+const indices = getIndices(k);
+
+console.log(indices);
