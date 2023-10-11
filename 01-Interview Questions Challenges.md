@@ -23,14 +23,22 @@
 1. var bubbles, let and const don't
       
         console.log(foo)
-        foo = 1; // error
+        foo = 1; 
+        
+        // error
         
         console.log(foo)
-        var foo = 1; // undefined
+        var foo = 1; 
+        
+        
+        // undefined
         
         foo = 4;
         console.log(foo)
-        var foo = 1; // 4
+        var foo = 1; 
+        
+        
+        // 4
 
 ## 6-Closures
 
@@ -120,7 +128,7 @@
 
           console.log(usersByLastName);
 
-## 14-Range function
+## *14-Range function
 
 1. Write a function tha create a range, ex: range(4, 40);
 
@@ -133,7 +141,7 @@
 - Respuesta:
 
 
-## 16-Number of Ocurrences
+## *16-Number of Ocurrences
 
 - Find the number of occurences of minimum value in the list
 

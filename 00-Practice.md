@@ -13,6 +13,7 @@
     5. Array.find
     6. Array.includes
     7. Array.reduce
+    8. Array.every
     
 
 ## ITERAR EN UN ARRAY
