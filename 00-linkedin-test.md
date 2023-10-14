@@ -155,14 +155,14 @@ console.log(animal);
 ```
 
 - [ ] Horse
-- [x] Cat
+- [ ] Cat
 - [ ] Mouse
 - [ ] undefined
 
 -
 
 - [ ] Horse
-- [ ] Cat
+- [x] Cat
 - [ ] Mouse
 - [ ] undefined
 
@@ -201,14 +201,14 @@ console.log(animal);
 ```
 
 - [ ] any that have not changed
-- [x] all of them
+- [ ] all of them
 - [ ] child props
 - [ ] any that have changed
 
 - 
 
 - [ ] any that have not changed
-- [ ] all of them
+- [x] all of them
 - [ ] child props
 - [ ] any that have changed
 
@@ -543,12 +543,12 @@ const Heading = () => {
 #### Q32. In which lifecycle method do you make requests for data in a class component?
 
 - [ ] constructor
-- [x] componentDidMount
+- [ ] componentDidMount
 - [ ] componentWillReceiveProps
 - [ ] componentWillMount
 -
 - [ ] constructor
-- [ ] componentDidMount
+- [x] componentDidMount
 - [ ] componentWillReceiveProps
 - [ ] componentWillMount
 
@@ -932,12 +932,12 @@ class Ticker extends React.component {
 }
 ```
 
-- [x] this.state.count
+- [ ] this.state.count
 - [ ] count
 - [ ] state
 - [ ] state.count
 -
-- [ ] this.state.count
+- [x] this.state.count
 - [ ] count
 - [ ] state
 - [ ] state.count
@@ -1334,6 +1334,8 @@ const { name: firstName } = props;
 - [ ] It is retrieving the value of props.name.firstName.
 - [ ] It is assigning the value of the props object's name property to a constant called firstName.
 -
+-
+-
 - [ ] It is creating a new object that contains the same name property as the props object.
 - [ ] It is assigning the value of the props object's firstName property to a constant called name.
 - [ ] It is retrieving the value of props.name.firstName.
@@ -1540,20 +1542,35 @@ class StarTrekkin extends React.Component {
 
 - [ ] Intuit
 - [ ] Twitter
+- [ ] Facebook
+- [ ] Snapchat
+-
+- [ ] Intuit
+- [ ] Twitter
 - [x] Facebook
 - [ ] Snapchat
 
 #### Q82. What command can you use to generate a React project?
 
 - [ ] react-starter
-- [x] create-react-app
+- [ ] create-react-app
 - [ ] react-gen
 - [ ] react-start
 
 [hint](https://create-react-app.dev/)
 
+- [ ] react-starter
+- [x] create-react-app
+- [ ] react-gen
+- [ ] react-start
+
 #### Q83. What is the browser extension called that React developers use to debug applications?
 
+- [ ] React Developer Tools
+- [ ] React Tooling Add-on
+- [ ] React Codewatch
+- [ ] React Debug
+-
 - [x] React Developer Tools
 - [ ] React Tooling Add-on
 - [ ] React Codewatch
@@ -1561,6 +1578,11 @@ class StarTrekkin extends React.Component {
 
 #### Q84. Which tool is not part of Create React App?
 
+- [ ] React
+- [ ] jQuery
+- [ ] webpack
+- [ ] ReactDOM
+-
 - [ ] React
 - [x] jQuery
 - [ ] webpack
@@ -1570,11 +1592,21 @@ class StarTrekkin extends React.Component {
 
 - [ ] HTML
 - [ ] JavaScriptX
+- [ ] JSX
+- [ ] React JavaScript
+-
+- [ ] HTML
+- [ ] JavaScriptX
 - [x] JSX
 - [ ] React JavaScript
 
 #### Q86. How might you check property types without using Flow or TypeScript?
 
+- [ ] Check Manually.
+- [ ] Use `prop-helper`.
+- [ ] use `prop-types`.
+- [ ] user `checker-types`.
+-
 - [ ] Check Manually.
 - [ ] Use `prop-helper`.
 - [x] use `prop-types`.
@@ -1586,6 +1618,11 @@ class StarTrekkin extends React.Component {
 let dish = <h1>Mac and Cheese</h1>;
 ```
 
+- [ ] `let dish = <h1 id={heading}>Mac and Cheese</h1>;`
+- [ ] `let dish = <h1 id="heading">Mac and Cheese</h1>;`
+- [ ] `let dish = <h1 id:"heading">Mac and Cheese</h1>;`
+- [ ] `let dish = <h1 class="heading">Mac and Cheese</h1>;`
+-
 - [ ] `let dish = <h1 id={heading}>Mac and Cheese</h1>;`
 - [x] `let dish = <h1 id="heading">Mac and Cheese</h1>;`
 - [ ] `let dish = <h1 id:"heading">Mac and Cheese</h1>;`
@@ -1609,6 +1646,11 @@ class Huggable extends React.Component {
 - [ ] `<button onClick={(name) => this.hug(name)}>Hug Button</button>;`
 - [ ] `<button onClick={this.hug(e, name)}>Hug Button</button>;`
 - [ ] `<button onClick={(e) => hug(name, e)}>Hug Button</button>;`
+- [ ] `<button onClick={(e) => this.hug(name, e)}>Hug Button</button>;`
+-
+- [ ] `<button onClick={(name) => this.hug(name)}>Hug Button</button>;`
+- [ ] `<button onClick={this.hug(e, name)}>Hug Button</button>;`
+- [ ] `<button onClick={(e) => hug(name, e)}>Hug Button</button>;`
 - [x] `<button onClick={(e) => this.hug(name, e)}>Hug Button</button>;`
 
 **Explanation:**
@@ -1617,17 +1659,27 @@ This question test knowledge of react class components. You need to use `this` i
 #### Q89. What syntax do you use to create a component in React?
 
 - [ ] a generator
-- [x] a function or a class
+- [ ] a function or a class
 - [ ] a service worker
 - [ ] a tag
 
 [Reference](https://reactjs.org/docs/components-and-props.html)
+
+- [ ] a generator
+- [x] a function or a class
+- [ ] a service worker
+- [ ] a tag
 
 **Explanation:**
 React Components are like functions that return HTML elements. Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components.
 
 #### Q90. You want to disable a button so that it does not emit any events onClick. Which prop do you use to acomplish this?
 
+- [ ] onBlur
+- [ ] onPress
+- [ ] defaultValue
+- [ ] disabled
+-
 - [ ] onBlur
 - [ ] onPress
 - [ ] defaultValue
@@ -1647,21 +1699,36 @@ function Dish() {
 ```
 
 - [ ] child component
+- [ ] parent component
+- [ ] nested component
+- [ ] sibling component
+-
+- [ ] child component
 - [x] parent component
 - [ ] nested component
 - [ ] sibling component
 
 #### Q92. When does the componentDidMount function fire?
 
-- [x] right after the component is added to the DOM
+- [ ] right after the component is added to the DOM
 - [ ] before the component is added to the DOM
 - [ ] right after the component is updated
 - [ ] right after an API call
 
 [Reference](https://reactjs.org/docs/react-component.html#componentdidmount)
 
+- [x] right after the component is added to the DOM
+- [ ] before the component is added to the DOM
+- [ ] right after the component is updated
+- [ ] right after an API call
+
 #### Q93. What might you use webpack for in React development?
 
+- [ ] to fetch remote dependencies used by your app
+- [ ] to split your app into smaller chunks that can be more easily loaded by the browser
+- [ ] to format your code so that it is more readable
+- [ ] to ensure your app is not vulnerable to code injection
+-
 - [ ] to fetch remote dependencies used by your app
 - [x] to split your app into smaller chunks that can be more easily loaded by the browser
 - [ ] to format your code so that it is more readable
@@ -1669,12 +1736,17 @@ function Dish() {
 
 #### Q94. When using the React Developer Tools Chrome extension, what does it mean if the React icon is red?
 
-- [x] You are using the development build of React.
+- [ ] You are using the development build of React.
 - [ ] You are using the production build of React.
 - [ ] You are using webpack.
 - [ ] You are using Create React App.
 
 [Reference](https://teamtreehouse.com/community/hey-why-the-logo-of-react-developer-tools-appears-in-red)
+
+- [x] You are using the development build of React.
+- [ ] You are using the production build of React.
+- [ ] You are using webpack.
+- [ ] You are using Create React App.
 
 #### Q95. How would you modify the constructor to fix this error: "ReferenceError: Must call super constructor in derived class before accessing 'this'..."?
 
@@ -1689,12 +1761,22 @@ class TransIsBeautiful extends React.Component {
 ```
 
 - [ ] render(props);
+- [ ] super(props);
+- [ ] super(this);
+- [ ] this.super();
+-
+- [ ] render(props);
 - [x] super(props);
 - [ ] super(this);
 - [ ] this.super();
 
 #### Q96. Which language can you not use with React?
 
+- [ ] Swift.
+- [ ] JSX.
+- [ ] Javascipt.
+- [ ] TypeScript.
+-
 - [x] Swift.
 - [ ] JSX.
 - [ ] Javascipt.
@@ -1714,9 +1796,14 @@ constructor(props) {
 - [ ] console.log(props.pokeDex);
 - [ ] console.log(this.props.pokeDex);
 - [ ] console.log(pokeDex);
-- [x] console.log(this.state.pokeDex);
+- [ ] console.log(this.state.pokeDex);
 
 [Reference](https://www.digitalocean.com/community/tutorials/how-to-manage-state-on-react-class-components#step-3-setting-state-from-a-static-value)
+
+- [ ] console.log(props.pokeDex);
+- [ ] console.log(this.props.pokeDex);
+- [ ] console.log(pokeDex);
+- [x] console.log(this.state.pokeDex);
 
 #### Q98. What would be the result of running this code?
 
@@ -1729,7 +1816,7 @@ add();
 ```
 
 - [ ] null
-- [x] 3
+- [ ] 3
 - [ ] 0
 - [ ] undefined
 
@@ -1737,14 +1824,24 @@ add();
 
 Explanation: function that called without parameter will use its param default value, thus x will always be default to 1 and y will always be default to 2.
 
+- [ ] null
+- [x] 3
+- [ ] 0
+- [ ] undefined
+
 #### Q99. Why might you use a React.ref?
 
 - [ ] to refer to another JS file
 - [ ] to bind the function
 - [ ] to call a function
-- [x] to directly access the DOM node
+- [ ] to directly access the DOM node
 
 [Reference](https://reactjs.org/docs/refs-and-the-dom.html)
+
+- [ ] to refer to another JS file
+- [ ] to bind the function
+- [ ] to call a function
+- [x] to directly access the DOM node
 
 #### Q100. What pattern is being used in this code block?
 
@@ -1755,9 +1852,14 @@ const { tree, lake } = nature;
 - [ ] function defaults
 - [ ] array destructuring
 - [ ] PRPL pattern
-- [x] destructuring assignment
+- [ ] destructuring assignment
 
 [Reference](https://javascript.info/destructuring-assignment)
+
+- [ ] function defaults
+- [ ] array destructuring
+- [ ] PRPL pattern
+- [x] destructuring assignment
 
 #### Q101. How would you correct this code block to make sure that the sent property is set to the Boolean value false?
 
