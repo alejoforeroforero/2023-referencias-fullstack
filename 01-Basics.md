@@ -8,7 +8,7 @@
          
 - Installation with Vite
 
-         npm create vite
+         npm create vite@latest
          npm install
          npm run dev (Server for develpment)
          npm run build (Deployment)
