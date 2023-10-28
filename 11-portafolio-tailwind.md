@@ -19,3 +19,4 @@
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
+- npm install react-type-animation
