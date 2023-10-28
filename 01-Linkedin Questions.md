@@ -890,14 +890,14 @@ f2();
 `let arr = [];`
 
 - [ ] 3
-- [x] 2
+- [ ] 2
 - [ ] 0
 - [ ] 1
 
 [Reference array prototype](https://www.w3schools.com/jsref/jsref_prototype_array.asp)
 
 - [ ] 3
-- [ ] 2
+- [x] 2
 - [ ] 0
 - [ ] 1
 

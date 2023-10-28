@@ -1129,41 +1129,58 @@ oso.mama
 
 ## 7.4 Valid Substring
 
-const k = "abcdddeeeeaabbbcdhhhaopppppp";
+    const k = "abcdddeeeeaabbbcdhhhaopppppp";
 
-const y = "baaasooo";
+    const y = "baaasooo";
 
-const getIndices = (text) => {
-  const tArray = text.toLowerCase().split("");
+    const getIndices = (text) => {
+      const tArray = text.toLowerCase().split("");
 
-  let counter = 0;
-  let lastValue = null;
+      let counter = 0;
+      let lastValue = null;
 
-  let validSubstringIndices = [];
+      let validSubstringIndices = [];
 
-  tArray.map((letter, index) => {
-    if (letter === lastValue) {
-      counter++;
-      if (tArray.length === index + 1) {
-        if (counter > 1) {
-          const indices = [index - counter, index];
-          validSubstringIndices.push(indices);
+      tArray.map((letter, index) => {
+        if (letter === lastValue) {
+          counter++;
+          if (tArray.length === index + 1) {
+            if (counter > 1) {
+              const indices = [index - counter, index];
+              validSubstringIndices.push(indices);
+            }
+          }
+        } else {
+          if (counter > 1) {
+            const indices = [index - counter - 1, index - 1];
+            validSubstringIndices.push(indices);
+          }
+          counter = 0;
         }
-      }
-    } else {
-      if (counter > 1) {
-        const indices = [index - counter - 1, index - 1];
-        validSubstringIndices.push(indices);
-      }
-      counter = 0;
+
+        lastValue = letter;
+      });
+
+      return validSubstringIndices;
+    };
+
+    const indices = getIndices(k);
+
+    console.log(indices);
+
+## 7.5 Pause a for loop
+
+    function processItem(item) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(item);
+        }, 800);
+      });
     }
 
-    lastValue = letter;
-  });
+    for (let x = 0; x < 10; x++) {
+      const v = await processItem(x);
+      console.log(v);
+    }
 
-  return validSubstringIndices;
-};
-
-const indices = getIndices(k);
-
-console.log(indices);
+    console.log("All items processed");
