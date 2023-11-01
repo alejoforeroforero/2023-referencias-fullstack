@@ -1432,14 +1432,14 @@ logThis();
 - [ ] function
 - [ ] undefined
 - [ ] Function.prototype
-- [x] window
+- [ ] window
 
 [Reference what is the javascript window](https://www.w3schools.com/js/js_window.asp)
 
 - [ ] function
 - [ ] undefined
 - [ ] Function.prototype
-- [ ] window
+- [X] window
 
 #### Q77. Which class-based component is equivalent to this function component?
 
