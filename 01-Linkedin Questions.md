@@ -2285,7 +2285,7 @@ bear += lion + tiger;
 tiger++;
 ```
 
-- [x] `line 5, because lion cannot be reassigned a value`
+- [ ] `line 5, because lion cannot be reassigned a value`
 - [ ] `line 6, because the += operator cannot be used with the undefined variable bear`
 - [ ] `line 5, because the prefix (++) operator does not exist in JavaScript`
 - [ ] `line 3, because the variable bear is left undefined`
@@ -2293,7 +2293,7 @@ tiger++;
 1. [Reference const in js](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 2. [Reference TypeError: invalid assignment to const "x"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_const_assignment)
 
-- [ ] `line 5, because lion cannot be reassigned a value`
+- [x] `line 5, because lion cannot be reassigned a value`
 - [ ] `line 6, because the += operator cannot be used with the undefined variable bear`
 - [ ] `line 5, because the prefix (++) operator does not exist in JavaScript`
 - [ ] `line 3, because the variable bear is left undefined`
