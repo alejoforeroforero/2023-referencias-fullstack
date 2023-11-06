@@ -1184,3 +1184,68 @@ oso.mama
     }
 
     console.log("All items processed");
+
+
+## 7.6 Matches in x arrays
+
+Mi versión:
+
+    const a = [2, 4, 8, 32, 56, 102]
+    const b = [2, 6, 8, 24, 102]
+    const c = [2, 6, 9, 102]
+
+    const listaCompleta = []
+    listaCompleta.push(a);
+    listaCompleta.push(b);
+    listaCompleta.push(c);
+
+    const getDuplicates = (listsOfArrays)=>{
+        let matches = []
+
+        const mixedList = listsOfArrays.reduce((acc, value)=>acc = [...acc, ...value])    
+      
+        listsOfArrays.sort((a, b) => a.length-b.length)[0].forEach(n =>{
+            if (mixedList.filter(item => item == n).length == listsOfArrays.length){
+                matches = [...matches, n];
+            }
+        })
+
+        return matches;
+    }
+
+    const duplicates = getDuplicates(listaCompleta);
+
+Otra versión:
+
+    const a = [2, 4, 8, 32, 56, 102]
+    const b = [2, 6, 8, 24, 102]
+    const c = [2, 6, 9, 102]
+
+    const listaCompleta = []
+    listaCompleta.push(a);
+    listaCompleta.push(b);
+    listaCompleta.push(c);
+
+    const duplicates = listaCompleta.shift().filter(function(v) {
+        return listaCompleta.every(function(a) {
+            return a.indexOf(v) !== -1;
+        });
+    });
+
+Otra versión con reduce:
+
+    const a = [2, 4, 8, 32, 56, 102]
+    const b = [2, 6, 8, 24, 102]
+    const c = [2, 6, 9, 102]
+
+    const listaCompleta = []
+    listaCompleta.push(a);
+    listaCompleta.push(b);
+    listaCompleta.push(c);
+
+    const duplicates = listaCompleta.shift().reduce(function(res, v) {
+        if (res.indexOf(v) === -1 && listaCompleta.every(function(a) {
+            return a.indexOf(v) !== -1;
+        })) res.push(v);
+        return res;
+    }, []);
