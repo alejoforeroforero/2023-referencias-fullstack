@@ -1215,6 +1215,28 @@ Mi versión:
 
     const duplicates = getDuplicates(listaCompleta);
 
+Mi versión con reduce mejorada:
+
+    const l1 = [2, 4, 6, 8, 9, 123];
+    const l2 = [2, 3, 5, 6, 9, 10, 80, 123];
+    const l3 = [2, 6, 9, 80, 123];
+    const l4 = [2, 6, 4, 3];
+
+    const lists = [];
+    lists.push(l4);
+    lists.push(l2);
+    lists.push(l1);
+    lists.push(l3);
+
+    const getDuplicates = (arrays) => {
+      const mixed = arrays.reduce((acc, value) => [...acc, ...value]);
+      return arrays
+        .sort((a, b) => a.length - b.length)[0]
+        .reduce((acc, value) => mixed.filter(n => n==value).length == arrays.length ? [...acc, value] : acc, [])
+    };
+
+    const d = getDuplicates(lists);
+
 Otra versión:
 
     const a = [2, 4, 8, 32, 56, 102]
