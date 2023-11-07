@@ -1271,3 +1271,43 @@ Otra versión con reduce:
         })) res.push(v);
         return res;
     }, []);
+
+## 7.7 MCM
+
+Mi versión:
+
+    const n1 = 15;
+    const n2 = 18;
+
+    const getMC = (a, b) => {
+      let mCM = null;
+      let i = 1;
+      let nMayor = Math.max(a, b);
+      let nMenor = Math.min(a, b);
+
+      if (nMenor === 0) {
+        alert("no se puede usar el 0");
+        return;
+      }
+
+      let numero;
+
+      let nMayorM = [];
+
+      do {
+        nMayorM = [...nMayorM, nMayor * i];
+        numero = nMenor * i;
+
+        if (nMayorM.includes(numero)) {
+          mCM = numero;
+        }
+
+        i++;
+      } while (mCM === null);
+
+      return mCM;
+    };
+
+    const d = getMC(n1, n2);
+
+    console.log(d);
