@@ -1272,7 +1272,7 @@ Otra versión con reduce:
         return res;
     }, []);
 
-## 7.7 MCM
+## 7.7 MCM || Least common multiple (LCM)
 
 Mi versión:
 
@@ -1333,7 +1333,7 @@ Otra versión que calcula con el máximo común divisor:
     const mcm = minimoComunMultiplo(a, b);
     console.log(`Mínimo común múltiplo de ${a} y ${b} es ${mcm}`);
 
-## 7.8 MÁXIMO COMÚN DIVISOR || 
+## 7.8 MÁXIMO COMÚN DIVISOR || Greatest common divisor (GCD)
 
     const maximoComunDivisor = (a, b) => {
         let temporal; //Para no perder b
