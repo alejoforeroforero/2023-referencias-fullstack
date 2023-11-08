@@ -1311,3 +1311,88 @@ Mi versión:
     const d = getMC(n1, n2);
 
     console.log(d);
+
+Otra versión que calcula con el máximo común divisor:
+
+    const maximoComunDivisor = (a, b) => {
+        let temporal; //Para no perder b
+        while (b !== 0) {
+            temporal = b;
+            b = a % b;
+            a = temporal;
+        }
+        return a;
+    };
+
+    const minimoComunMultiplo = (a, b) => {
+        return (a * b) / maximoComunDivisor(a, b);
+    };
+
+    // https://parzibyte.me/blog
+    const a = 15, b = 18;
+    const mcm = minimoComunMultiplo(a, b);
+    console.log(`Mínimo común múltiplo de ${a} y ${b} es ${mcm}`);
+
+## 7.8 MÁXIMO COMÚN DIVISOR || 
+
+    const maximoComunDivisor = (a, b) => {
+        let temporal; //Para no perder b
+        while (b !== 0) {
+            temporal = b;
+            b = a % b;
+            a = temporal;
+        }
+        return a;
+    };
+
+## 7.9 FACTORES PRIMOS || PRIME NUMBER || PRIME FACTOR?
+
+Mi versión:
+
+    const n = 30;
+
+    const getfactoresPrimos = (n) => {
+      const nPrimos = [
+        2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
+        73, 79, 83, 89, 97,
+      ];
+
+      return nPrimos
+        .filter((item) => item <= n / 2)
+        .reduce((acc, value) => {
+          if (value <= n) {
+            while (n % value == 0) {
+              const x = n / value;
+              n = x;
+              acc = [...acc, value];
+            }
+            return acc;
+          }
+
+          return acc;
+        }, []);
+    };
+
+    const factoresPrimos = getfactoresPrimos(n);
+
+Otra versión resencilla:
+
+    function getPrimeFactors(n) {
+      const factors = [];
+      let divisor = 2;
+
+      while (n >= 2) {
+        if (n % divisor == 0) {
+          factors.push(divisor);
+          n = n / divisor;
+        } else {
+          divisor++;
+        }
+      }
+      return factors;
+    }
+
+    //const randomNumber = Math.floor(Math.random() * 10000);
+    const randomNumber = 9;
+    const primeFactors = getPrimeFactors(randomNumber);
+    console.log(primeFactors)
