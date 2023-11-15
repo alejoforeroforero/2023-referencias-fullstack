@@ -1188,6 +1188,8 @@ oso.mama
 
 ## 7.6 Matches in x arrays
 
+*Ojo al no quitar duplicados estaban mal mis versiones. Para quitar duplicados utilizar ...new Set(array)
+
 Mi versión:
 
     const a = [2, 4, 8, 32, 56, 102]
@@ -1217,9 +1219,9 @@ Mi versión:
 
 Mi versión con reduce mejorada:
 
-    const l1 = [2, 4, 6, 8, 9, 123];
+    const l1 = [2, 2, 4, 6, 8, 9, 123];
     const l2 = [2, 3, 5, 6, 9, 10, 80, 123];
-    const l3 = [2, 6, 9, 80, 123];
+    const l3 = [6, 9, 80, 123];
     const l4 = [2, 6, 4, 3];
 
     const lists = [];
@@ -1229,7 +1231,7 @@ Mi versión con reduce mejorada:
     lists.push(l3);
 
     const getDuplicates = (arrays) => {
-      const mixed = arrays.reduce((acc, value) => [...acc, ...value]);
+      const mixed = arrays.reduce((acc, value) => [...acc, ...new Set(value)]);
       return arrays
         .sort((a, b) => a.length - b.length)[0]
         .reduce((acc, value) => mixed.filter(n => n==value).length == arrays.length ? [...acc, value] : acc, [])
