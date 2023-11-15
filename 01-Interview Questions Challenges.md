@@ -1396,3 +1396,72 @@ Otra versión resencilla:
     const randomNumber = 9;
     const primeFactors = getPrimeFactors(randomNumber);
     console.log(primeFactors)
+
+## 7.10 ELEMENTOS MÁS RECURRENTES EN UN ARREGLO
+
+      Mi solución:
+
+      const getMostRecurrentElement = (arr) => {
+        if (arr instanceof Array && arr.length) {
+          let numbers = {};
+          let maxValue = 0;
+          let numbersWithMoreRepetitions = [];
+
+          arr.forEach((n) => {
+            if (numbers[n] > 0) {
+              numbers[n] = ++numbers[n];
+            } else {
+              numbers[n] = 1;
+            }
+          });
+
+          for (const [key, value] of Object.entries(numbers)) {
+            if (value >= maxValue) {
+              maxValue = value;
+              numbersWithMoreRepetitions = [...numbersWithMoreRepetitions, key];
+            }
+          }
+
+          return numbersWithMoreRepetitions;
+        } else {
+          throw Error("Se debe usar un array con valores");
+        }
+      };
+
+      const numbers = [5, 5, 1, 1, 3, 4, 4];
+
+      let result;
+
+      try {
+        result = getMostRecurrentElement(numbers);
+        console.log(result);
+      } catch (e) {
+        console.log(e);
+      }
+
+Solución de John Ortiz Ordoñez
+
+    function moda(numeros) {
+      if (numeros instanceof Array) {
+        if (numeros.length) {
+          let ocurrencias = new Map();
+
+          // {5: 2, 2: 3, 3: 1, ...}
+
+          numeros.forEach((valor, indice, arreglo) => {
+            if (ocurrencias.has(valor)) {
+              ocurrencias.set(valor, ocurrencias.get(valor) + 1);
+            } else {
+              ocurrencias.set(valor, 1);
+            }
+          });
+
+          return [...ocurrencias.entries()].reduce((a, v) => (v[1] > a[1] ? v : a));
+        } else {
+          throw Error("El arreglo debe tener al menos un número.");
+        }
+      } else {
+        throw TypeError("El argumento `numeros` debe ser de tipo arreglo.");
+      }
+    }
+
