@@ -1401,45 +1401,44 @@ Otra versión resencilla:
 
 ## 7.10 ELEMENTOS MÁS RECURRENTES EN UN ARREGLO
 
-      Mi solución:
+Mi solución con Obj correcta, antes estaba mal:
 
-      const getMostRecurrentElement = (arr) => {
-        if (arr instanceof Array && arr.length) {
-          let numbers = {};
-          let maxValue = 0;
-          let numbersWithMoreRepetitions = [];
+    const getMostRecurrentElement = (arr) => {
+      if (arr instanceof Array && arr.length) {
+        let numbers = {};
+        let maxValue = 0;
 
-          arr.forEach((n) => {
-            if (numbers[n] > 0) {
-              numbers[n] = ++numbers[n];
-            } else {
-              numbers[n] = 1;
-            }
-          });
-
-          for (const [key, value] of Object.entries(numbers)) {
-            if (value >= maxValue) {
-              maxValue = value;
-              numbersWithMoreRepetitions = [...numbersWithMoreRepetitions, key];
-            }
+        arr.forEach((n) => {
+          if (numbers[n] > 0) {
+            numbers[n] = ++numbers[n];
+          } else {
+            numbers[n] = 1;
           }
+        });
 
-          return numbersWithMoreRepetitions;
-        } else {
-          throw Error("Se debe usar un array con valores");
+        for (let [key, value] of Object.entries(numbers)) {
+          if (value > maxValue) {
+            maxValue = value;
+          }
         }
-      };
 
-      const numbers = [5, 5, 1, 1, 3, 4, 4];
-
-      let result;
-
-      try {
-        result = getMostRecurrentElement(numbers);
-        console.log(result);
-      } catch (e) {
-        console.log(e);
+        return Object.entries(numbers)
+          .filter((n) => n[1] == maxValue)
+          .map((n) => n[0]);
+      } else {
+        throw Error("Se debe usar un array con valores");
       }
+    };
+
+    const numbers = [1, 2, 3, 2, 5, 8, 8, 11];
+    let result;
+
+    try {
+      result = getMostRecurrentElement(numbers);
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
 
 Solución de John Ortiz Ordoñez
 
