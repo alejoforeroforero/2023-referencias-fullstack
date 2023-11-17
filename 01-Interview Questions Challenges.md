@@ -1190,54 +1190,39 @@ oso.mama
 
 *Ojo al no quitar duplicados estaban mal mis versiones. Para quitar duplicados utilizar ...new Set(array)
 
-Mi versión:
+Mi versión sin duplicados y con Obj:
 
-    const a = [2, 4, 8, 32, 56, 102]
-    const b = [2, 6, 8, 24, 102]
-    const c = [2, 6, 9, 102]
+    const getMatches = (lists)=>{
+      let listJoin = []
 
-    const listaCompleta = []
-    listaCompleta.push(a);
-    listaCompleta.push(b);
-    listaCompleta.push(c);
+      lists.forEach(list =>{
+        listJoin = [...listJoin, ...new Set(list)]
+      })
 
-    const getDuplicates = (listsOfArrays)=>{
-        let matches = []
+      let obj = {}
 
-        const mixedList = listsOfArrays.reduce((acc, value)=>acc = [...acc, ...value])    
-      
-        listsOfArrays.sort((a, b) => a.length-b.length)[0].forEach(n =>{
-            if (mixedList.filter(item => item == n).length == listsOfArrays.length){
-                matches = [...matches, n];
-            }
-        })
+      listJoin.forEach(n =>{
+        if(obj[n]){
+          obj[n] = ++obj[n]
+        }else{
+          obj[n] = 1
+        }
+      })
 
-        return matches;
+      return Object.entries(obj).filter(item => item[1] == lists.length).map(item => item[0])  
     }
 
-    const duplicates = getDuplicates(listaCompleta);
+    const l1 = [2, 2, 4]
+    const l2 = [2, 4, 5]
+    const l3 = [1, 3, 5, 4]
 
-Mi versión con reduce mejorada:
+    const lists = []
+    lists.push(l1)
+    lists.push(l2)
+    lists.push(l3)
 
-    const l1 = [2, 2, 4, 6, 8, 9, 123];
-    const l2 = [2, 3, 5, 6, 9, 10, 80, 123];
-    const l3 = [6, 9, 80, 123];
-    const l4 = [2, 6, 4, 3];
+    const result = getMatches(lists)
 
-    const lists = [];
-    lists.push(l4);
-    lists.push(l2);
-    lists.push(l1);
-    lists.push(l3);
-
-    const getDuplicates = (arrays) => {
-      const mixed = arrays.reduce((acc, value) => [...acc, ...new Set(value)]);
-      return arrays
-        .sort((a, b) => a.length - b.length)[0]
-        .reduce((acc, value) => mixed.filter(n => n==value).length == arrays.length ? [...acc, value] : acc, [])
-    };
-
-    const d = getDuplicates(lists);
 
 Otra versión:
 
