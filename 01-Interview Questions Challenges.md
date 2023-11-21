@@ -1540,3 +1540,14 @@ Solución de John Ortiz Ordoñez
       }
     }
 
+## 7.11 SECONDS TO TIME FORMAT
+
+    function getTimeFormat(seconds) {
+      const hrs = String(Math.floor(seconds / 3600));
+      const mins = String(Math.floor((seconds % 3600) / 60));
+      const secs = String(seconds % 60);
+
+      return `${hrs.padStart(2, 0)}:${mins.padStart(2, 0)}:${secs.padStart(2, 0)}`;
+    }
+
+    console.log(getTimeFormat(121));
