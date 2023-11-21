@@ -1322,6 +1322,22 @@ Otra versión que calcula con el máximo común divisor:
 
 ## 7.8 MÁXIMO COMÚN DIVISOR || Greatest common divisor (GCD)
 
+
+    const maximoComunDivisor = (divident, divisor)=>{
+
+        let prevDivisor;
+
+        while(divisor > 0){
+            prevDivisor = divisor
+            divisor = divident % divisor
+            divident = prevDivisor
+        }
+
+        return divident
+    }
+
+Original:
+
     const maximoComunDivisor = (a, b) => {
         let temporal; //Para no perder b
         while (b !== 0) {
@@ -1331,6 +1347,79 @@ Otra versión que calcula con el máximo común divisor:
         }
         return a;
     };
+
+Solución para varios números:
+
+      const getGCD = (arr) => {
+        let index = 0;
+        let divisor = arr[index];
+
+        while (index < arr.length) {
+          let divident = arr[index + 1];
+
+          while (divisor > 0) {
+            let prevDivisor = divisor;
+            divisor = divident % divisor;
+            divident = prevDivisor;
+          }
+
+          divisor = divident;
+
+          index++;
+        }
+
+        return divisor;
+      };
+
+      const numbers = [100, 80, 20];
+
+      console.log(getGCD(numbers));
+
+Otra versión
+
+    const getGCD = (arr) => {
+
+      if(arr.includes(0)){
+        return 'No puede haber ceros'
+      }
+
+      const orderedNumbers = arr.sort((a, b) => a - b);
+
+      let index = 1;
+      let divident = arr[index];
+      let divisor = arr[index - 1];
+      let remainder = 0;
+      let gCD = 0;
+
+      while (index < arr.length) {
+        gCD = 0;
+
+        while (gCD == 0) {
+          if (divident % divisor == 0) {
+            gCD = divisor;
+            index++;
+
+            if (index == arr.length) {
+              return gCD;
+            }
+
+            divident = orderedNumbers[index];
+            divisor = gCD;
+          } else {
+            remainder = divident % divisor;
+            divident = divisor;
+            divisor = remainder;
+          }
+        }
+      }
+    };
+
+    const numbers = [0, 24, 64];
+
+    const result = getGCD(numbers);
+
+    console.log(result)
+
 
 ## 7.9 FACTORES PRIMOS || PRIME NUMBER || PRIME FACTOR?
 
