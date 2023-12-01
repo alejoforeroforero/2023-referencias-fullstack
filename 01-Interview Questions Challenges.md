@@ -1514,6 +1514,28 @@ Mi solución con Obj correcta, antes estaba mal:
       console.log(e);
     }
 
+Mi Solución con Map:
+
+    const numbers = [2, 3, 3, 5, 3, 120, 120, 120, 9, 120, 3];
+
+    const doit = (arr) => {
+      let objs = new Map();
+
+      arr.forEach((item, index, thisArr) => {
+        if(objs.has(item)){
+          objs.set(item, objs.get(item)+1)
+        }else{
+          objs.set(item, 1)
+        }
+      });
+
+      let maxVal = [...objs.entries()].reduce((acc, value) => value[1] >acc[1] ? value : acc)[1]
+
+      return [...objs.entries()].filter(obj => obj[1] == maxVal).map(el => el[0])
+    };
+
+    console.log(doit(numbers));
+
 Solución de John Ortiz Ordoñez
 
     function moda(numeros) {
