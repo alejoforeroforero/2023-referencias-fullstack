@@ -321,6 +321,37 @@ Create the same with commonJS module
 
 ## 22-Debounce
 
+    const input = document.getElementById("input1");
+    const db = document.getElementById("debounce");
+
+    const changeText = (text) => {
+      db.innerHTML = text;
+    };
+
+    const imprimir = (text) => {
+        console.log(text)
+      };
+
+    const change = (cb, delay = 1000) => {
+      let timeout;
+      return (inputVal) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            cb(inputVal);
+        }, delay);
+      };
+    };
+
+    const debounce = change(changeText)
+    const debounce2 = change(imprimir)
+
+    input.addEventListener("input", (e) => {
+      debounce(e.target.value);
+      debounce2(e.target.value);
+    });
+
+
+
 ## 23-Throttel
 
 
