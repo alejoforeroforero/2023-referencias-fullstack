@@ -1393,6 +1393,25 @@ Solución para varios números:
 
       console.log(getGCD(numbers));
 
+Otra versión que me husta más:
+
+    const gcdArr = (arr) => {
+      let divisor = null;
+
+      const gcd = (divident, divisor) => {
+        if (!divisor) return divident;
+        return gcd(divisor, divident % divisor);
+      };
+
+      arr.forEach((el) => {
+        divisor = gcd(el, divisor);
+      });
+
+      return divisor;
+    };
+
+    console.log(gcdArr([6, 18]));
+
 Otra versión
 
     const getGCD = (arr) => {
