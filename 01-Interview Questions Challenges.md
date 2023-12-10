@@ -1294,41 +1294,28 @@ Otra versión con reduce:
 
 Mi versión:
 
-    const n1 = 15;
-    const n2 = 18;
+    const getMCM = (a, b)=>{
 
-    const getMC = (a, b) => {
-      let mCM = null;
-      let i = 1;
-      let nMayor = Math.max(a, b);
       let nMenor = Math.min(a, b);
+      let nMayor = Math.max(a, b);
 
-      if (nMenor === 0) {
-        alert("no se puede usar el 0");
-        return;
+      let counter = 1;
+      let mCM = null
+
+      while(mCM == null){
+        let n = nMenor * counter
+
+        if(n % nMayor == 0){
+          mCM = n
+        }else{
+          counter++
+        }
       }
 
-      let numero;
-
-      let nMayorM = [];
-
-      do {
-        nMayorM = [...nMayorM, nMayor * i];
-        numero = nMenor * i;
-
-        if (nMayorM.includes(numero)) {
-          mCM = numero;
-        }
-
-        i++;
-      } while (mCM === null);
-
       return mCM;
-    };
+    }
 
-    const d = getMC(n1, n2);
-
-    console.log(d);
+    console.log(getMCM(6, 33))
 
 Otra versión que calcula con el máximo común divisor:
 
