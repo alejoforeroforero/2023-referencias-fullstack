@@ -1292,6 +1292,29 @@ Otra versión con reduce:
 
 ## 7.7 MCM || Least common multiple (LCM)
 
+Mejor versión para lista de números:
+
+    const lcmArr = (arr) => {
+      let n = 1;
+
+      const gcd = (divident, divisor) => {
+        if (!divisor) return divident;
+        return gcd(divisor, divident % divisor);
+      };
+
+      const lcm = (a, b) => {
+        return (a * b) / gcd(a, b);
+      };
+
+      arr.forEach((el) => {
+        n = lcm(el, n);
+      });
+
+      return n;
+    };
+
+    console.log(lcmArr([3, 9, 6]));
+
 Mi versión:
 
     const getMCM = (a, b)=>{
