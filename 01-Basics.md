@@ -1,24 +1,46 @@
 # React study guide
-
-- Installation
-
-         npx create-react-app . // To create a new React App in the root folder. Note: this folder must be in lowercase letters
-         
-         npm i uuid //Library to create random unique ids
-         
+        
 - Installation with Vite
 
-         npm create vite@latest
-         npm install
-         npm run dev (Server for develpment)
-         npm run build (Deployment)
-         npm run preview(Preview of deployment)  
+      npm create vite@latest
+      npm install
+      npm run dev (Server for develpment)
+      npm run build (Deployment)
+      npm run preview(Preview of deployment)  
          
          
 - JSX: JavaScript extended
          
-         import Component from './components/component'
-         <Component />
+      import Component from './components/component'
+      <Component />
+
+- Lazy Initial State
+         
+      import { useState } from "react"
+
+      let x = 0;
+
+      function initalState(){
+        x++;
+        console.log(x)
+        return 0;
+      }
+
+      function App() {
+
+        let [x, sumar] = useState(()=>initalState())
+
+        return (
+          <>
+            <h1>{x}</h1>
+            <button onClick={() => sumar(x + 1)}>Sumar</button>
+          </>
+        )
+      }
+
+      export default App
+
+
  
  - Map an array:
 
