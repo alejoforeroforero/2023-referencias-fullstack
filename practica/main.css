@@ -1,0 +1,30 @@
+body{
+    background-color: greenyellow;
+}
+
+.grid-container{
+    border:1px solid red;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-template-rows: 80px 20px auto; 
+    column-gap: 10px;
+    row-gap: 15px;
+}
+
+.grid-items{
+    border: 1px solid blue;
+}
+
+ul{
+    padding: 30px;
+    border: 1px solid red;
+}
+
+li{
+    border:1px solid blue;
+}
+
+video{
+    width:30vw;
+}
