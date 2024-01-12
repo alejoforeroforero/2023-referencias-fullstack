@@ -1221,6 +1221,24 @@ oso.mama
 
 *Ojo al no quitar duplicados estaban mal mis versiones. Para quitar duplicados utilizar ...new Set(array)
 
+La versión que más me gusta:
+
+      const doit = (arrs)=>{
+        return arrs.shift().filter(el=>{
+          return arrs.every(arr =>{
+            return arr.includes(el)
+          })
+        })
+      }
+
+      const arrays = [
+        [1, 2, 3],
+        [3, 4, 5],
+        [6, 3, 7]
+      ]
+
+      console.log(doit(arrays))
+
 Mi versión sin duplicados y con Obj:
 
     const getMatches = (lists)=>{
