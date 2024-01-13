@@ -8,6 +8,7 @@
     1) <a href='#r1-5'>What exactly is lazy initalitation?</a>
     1) <a href='#r1-6'>What is the advantage of usinj JSX?</a>
     1) <a href='#r1-7'>useEffect questions</a>
+    1) <a href='#r1-8'>useRef questions</a>
 1) Cap2
 
 
@@ -81,3 +82,29 @@ function App() {
 }
 ```
 *It is important to clear the interval
+
+4. How can you prevent useEffect() to be called for all states or skip for specific states?
+
+With de second parameter where you can create an array with the elements you want to ve watched for states changes
+
+5. Explain clean up code with useEffect() hook
+
+With the return statement with which you unmount the hook. It is important to use it with interals or event Listeners
+
+```
+useEffect(()=>{
+  window.addEventListener('mousemove', doit)
+
+  return ()=> window.removeEventListener('mousemove', doit)
+})
+```
+<h2 id='r1-8'>useRef questions</h2>
+
+1. In Which situation you will use ref?
+- When it comes to referring directly the element
+
+2. What is the purpose of the useRef() attribute?
+- The ref, createRef() or useRef() are used to get the reference of the elements
+
+* It is important to noticed that the useRef() hook can preserve values between renders of the component. This is well explained in the useEffect video of webDevSimplified:
+https://www.youtube.com/watch?v=0ZJgIjIuY7U 

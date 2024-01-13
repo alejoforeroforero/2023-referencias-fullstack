@@ -1,21 +1,13 @@
 import { useState, useEffect } from 'react'
+import MousePosition from './Components/MousePosition'
 
 function App() {
-  let [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let interval = setInterval(() => {
-      setCount(++count)
-    }, 1000)
-
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
+  let [on, setOn] = useState(false)
 
   return (
     <>
-      <h1>{count}</h1>
+      <div>{on ? <MousePosition /> : <h1>Off</h1>}</div>
+      <button onClick={()=>setOn(!on)}>{on.toString()}</button>
     </>
 
   )
