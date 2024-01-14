@@ -1,7 +1,5 @@
 # Strings (slice, join, substring, replace, replaceAll, split)
 
-
-
 1) <a href="#s1">Crear palabras removiendo cada letra de un string</a>
 1) Imprimir las letras de un string en espejo
 1) Count vowels: const str1 = "Este es un texto al cual se le van a contar las vocales";

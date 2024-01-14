@@ -25,17 +25,8 @@
 
 ## EJERCICIOS EN ARRAY Y JSON 
 
-    1. Shufle un Array
-    2. Organizar una lista por el Key de un objeto (¿esto es necesario o ya se puede hacer con el filter?)
+    1. Organizar una lista por el Key de un objeto (¿esto es necesario o ya se puede hacer con el filter?)
 
-    1. Shufle an Array
-
-        function randomizar(lista) {
-        return lista
-            .map(item => ({order:Math.random(), value:item}))
-            .sort((i1, i2) => i1.order - i2.order)
-            .map((nItem) => nItem.value);
-        }
 
 ## EJERCICIOS CON MATH O NÚMEROS
 
