@@ -1,21 +1,17 @@
 # Arrays (forEach, map, reduce, every, filter, includes, some, slice, splice, shift, unshift, reverse, pop, toString)
 
 1) <a href='#a1'>Crear un array con las columnas en una matrix </a>
-1) Elemento que más se repite en un arreglo, soluciones con Map y Set
+1) <a href='#a2'>Elemento que más se repite en un arreglo, soluciones con Map y Set </a>
 1) <a href='#a3'>Encontrar matches en múltiples arrays </a>
-1) Quitar tres elementos en un array desde el index 2
-1) Shuffle an array
+1) <a href='#a4'>Quitar tres elementos en un array desde el index 2</a>
+1) <a href='#a5'>Shuffle an array</a>
 1) Recorrer un objeto con Object.keys
 1) Get name of active users that are older than 43
 1) revisar si en una lista de números todos son positivos
 
-
-
-
 <h2 id='a1'>Crear un array con las columnas en una matrix </h2>
 
 ### Con map y la versión que más me gusta:
-
 
 ````
 const doit = (arrs) => {
@@ -66,6 +62,62 @@ const doit = (arrs) => {
   console.log(doit(arrays));
 ``````
 
+<h2 id='a2'>Elemento que más se repite en un arreglo, soluciones con Map y Set </h2>
+
+### Con map:
+```
+const doit = (arr) => {
+  let mapObj = new Map();
+
+  arr.forEach((el) => {
+    if (mapObj.has(el)) {
+      mapObj.set(el, mapObj.get(el) + 1);
+    } else {
+      mapObj.set(el, 1);
+    }
+  });
+
+  let topRepetitions = 0;
+
+  mapObj.forEach((value, key) => {
+    if (value > topRepetitions) {
+      topRepetitions = value;
+    }
+  });
+
+  return [...mapObj].filter((el) => el[1] == topRepetitions).map((el) => el[0]);
+};
+
+const arr = [1, 2, 3, 4, 5, 4, 3, 4];
+
+console.log(doit(arr));
+```
+
+### Con obj:
+```
+const doit = (arr) => {
+  let obj = {}
+
+  arr.forEach(el =>{
+    if(obj[el]){
+      obj[el] = obj[el] + 1
+    }else{
+      obj[el] = 1
+    }
+  })
+
+  let topRepetitions = 0;
+
+  Object.entries(obj).forEach(el => el[1] > topRepetitions ? topRepetitions = el[1] : null)
+
+  return Object.entries(obj).filter(el => el[1] == topRepetitions).map(el => el[0])
+};
+
+const arr = [1, 2, 3, 4, 5, 4, 3];
+
+console.log(doit(arr));
+```
+
 <h2 id='a3'>Encontrar matches en múltiples arrays</h2>
 
 ### la mejor versión:
@@ -90,4 +142,31 @@ const arrays = [
 ];
 
 console.log(doit(arrays));
-``````
+````
+
+<h2 id='a4'>Quitar tres elementos en un array desde el index 2 </h2>
+
+```
+const doit = (arr) => {
+  arr.splice(2, 3);
+  return arr;
+};
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+
+console.log(doit(arr));
+```
+
+<h2 id='a5'>Shuffle an array </h2>
+
+```
+const doit = (arr) => {
+  return arr.map((el) => ({ pos: Math.random(), value: el }))
+  .sort((el1, el2) => el1.pos - el2.pos)
+  .map(obj => obj.value)
+};
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+
+console.log(doit(arr));
+```

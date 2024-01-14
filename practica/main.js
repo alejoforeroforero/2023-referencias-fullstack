@@ -1,19 +1,9 @@
-const doit = (arrs) => {
-  return [
-    ...new Set(
-      arrs.shift().filter((el) => {
-        return arrs.every((arr) => {
-          return arr.includes(el);
-        });
-      })
-    ),
-  ];
+const doit = (arr) => {
+  return arr.map((el) => ({ pos: Math.random(), value: el }))
+  .sort((el1, el2) => el1.pos - el2.pos)
+  .map(obj => obj.value)
 };
 
-const arrays = [
-  [1, 2, 3, 3],
-  [4, 3, 6],
-  [3, 8, 9],
-];
+const arr = [1, 2, 3, 4, 5, 6, 7];
 
-console.log(doit(arrays));
+console.log(doit(arr));
