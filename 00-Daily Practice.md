@@ -2,7 +2,7 @@
 # Daily practice
 
 - Vite:
-    - Crear nuevo app de React 
+    - Crear nuevo app de React con 
 - React Router:
     - Crear un SPA con React Router y hacer uso de Nested routes
 - Use Effect: 
