@@ -12,7 +12,6 @@ function begin(){
     x+y;
 }
 
-
 function addNode () { 
     var textNode = document.createTextNode(" This is a new text node");  
     document.getElementById("firstP").appendChild(textNode); 
