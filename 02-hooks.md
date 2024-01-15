@@ -1,3 +1,59 @@
+# Hooks
+
+  1) <a href='#hook1'>React.memo() y useCallback()</a>
+
+<h2 id='hook1'>React.memo() y useCallback()</h2>
+
+### React.memo()
+```
+export default React.memo(Button)
+```
+
+### useCallback()
+- Importante: Para que funcione, el componente al que se le aplica el useCallback debe tener useMemo()
+```
+import React, { useState, useCallback } from 'react'
+import Header from './Header'
+import Footer from './Footer'
+import Numbers from './Numbers'
+import Button from './Button'
+
+const Counter = () => {
+  console.log('render Counter')
+
+  const [n, setN] = useState(0)
+  const [n2, setN2] = useState(1)
+
+  const handleN = useCallback(() => {
+    setN(n + 1)
+  }, [n])
+
+  const handleN2 = useCallback(() => {
+    setN2(n2 * 2)
+  }, [n2])
+
+  return (
+    <>
+      <Header />
+      <Numbers number={n} />
+      <Numbers number={n2} />
+      <Button
+        label='sumar'
+        fx={handleN}
+      />
+      <Button
+        label='multiplicar'
+        fx={handleN2}
+      />
+      <Footer />
+    </>
+  )
+}
+
+export default React.memo(Counter)
+```
+
+
 - useState:
 
       const [variableName, fxToUpadate] = useState(true);
