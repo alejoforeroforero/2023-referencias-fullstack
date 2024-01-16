@@ -1,8 +1,8 @@
 # Arrays (forEach, map, reduce, every, filter, includes, some, slice, splice, shift, unshift, reverse, pop, toString)
 
 1) <a href='#a1'>Crear un array con las columnas en una matrix </a>
-1) <a href='#a2'>Elemento que más se repite en un arreglo, soluciones con Map y Set </a>
 1) <a href='#a3'>Encontrar matches en múltiples arrays </a>
+1) <a href='#a2'>Elemento que más se repite en un arreglo, soluciones con Map y Set </a>
 1) <a href='#a4'>Quitar tres elementos en un array desde el index 2</a>
 1) <a href='#a5'>Shuffle an array</a>
 1) <a href='#a6'>Recorrer un objeto con Object.keys, for in, Object.entries</a>
