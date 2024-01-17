@@ -9,7 +9,30 @@
     1) <a href='#r1-6'>What is the advantage of usinj JSX?</a>
     1) <a href='#r1-7'>useEffect questions</a>
     1) <a href='#r1-8'>useRef questions</a>
-1) Cap2
+1) Event Handling
+    1) <a href='#r4-1'>What is a SyntheticEvent in React JS?</a>
+    1) <a href='#r4-2'>How do you update the state value when data entered in the textbox?</a>
+    1) <a href='#r4-3'>How will you prevent the default default behaviour of an element?</a>
+    1) <a href='#r4-4'>Why is updating state with "functional update" syntax better?</a>
+
+<h2 id='r4-4'>Why is updating state with "functional update" syntax better?</h2>
+The main reason to do so is React does not update the state immediately as it has its own method os schedule to update the states. In case there are many updates of the state happening at the same time, it may refer to an incorrect copy of a state.
+
+### The correct syntax to update the state of an object literal is this one:
+```
+setPersInfo((prevState)=>{
+  setPersInfo({...prevState, [e.target.name]:e.target.value})
+})
+```
+
+<h2 id='r4-3'>How will you prevent the default default behaviour of an element?</h2>
+You cannot use return false with an event as it is done in JavaScript. In React you must use e.preventDefault() method
+
+<h2 id='r4-2'>How do you update the state value when data entered in the textbox?</h2>
+With the synthetic event and calling e.target.value 
+
+<h2 id='r4-1'>What is a SyntheticEvent in React JS?</h2>
+Is a wrapper around the native browser event object and that is passed to every function automatically 
 
 
 <h2 id='r1-1'>What is JSX? How to write it in Program?</h2>

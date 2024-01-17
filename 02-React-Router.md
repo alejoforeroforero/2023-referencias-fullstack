@@ -5,9 +5,9 @@
 - npm i react-router-dom
 - import { BrowserRouter } from 'react-router-dom' en Main.jsx
 - Crear el contexto:
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+  <BrowserRouter>
+  <App />
+  </BrowserRouter>
 - import { NavLink, Link, Route, Routes } from 'react-router-dom' en App.jsx
 - Crear las rutas después de importar:
 
@@ -44,4 +44,51 @@
             </ul>
         </nav>
 
+- Pasar Data con State:
 
+1. Poner state en el NavLink
+
+```
+<nav>
+    <ul>
+        {instrumentos.map(instrumento => {
+            return (
+                <li key={instrumento.id}>
+                    <NavLink
+                        state={instrumento}
+                        to={instrumento.url}>{instrumento.item}
+                    </NavLink>
+                </li>
+            )
+        })}
+
+    </ul>
+</nav>
+```
+
+2. Hacer uso del useLocationHook en el child
+
+```
+const Instrumento = () => {
+
+  const location = useLocation();
+
+  return (
+    <div>{JSON.stringify(location)}</div>
+  )
+}
+```
+
+- Pasar Data con Context:
+
+1. Poner context y la data en el Outlet:
+
+```
+<Outlet context={instrumentos} />
+```
+
+2. Usar el useOutletContext hook:
+
+```
+const instrumentos = useOutletContext();
+```

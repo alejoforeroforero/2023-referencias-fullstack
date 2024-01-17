@@ -1,10 +1,7 @@
-
-
 function App() {
-
   return (
     <>
-      Alejo
+Hola amigues
     </>
   )
 }

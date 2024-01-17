@@ -21,3 +21,14 @@ li{
     display: inline-block;
     margin: 12px;
 }
+
+.navegacion{
+    color:rgb(252, 252, 255);
+    background-color: rgb(78, 146, 206);
+    padding: 12px;
+}
+
+.active{
+    color:red;
+}
+
