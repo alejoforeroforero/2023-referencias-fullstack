@@ -1,16 +1,58 @@
 # Hooks
 
-  1) <a href='#hook1'>React.memo() y useCallback()</a>
+1. <a href='#hook1'>React.memo() y useCallback()</a>
+1. <a href='#context'>React.createContext y useContext()</a>
+
+  <h2 id='context'>React.createContext y useContext()</h2>
+
+1. Create a folder named "store" to establish the context, and within it, create the component:
+
+```
+import React from 'react'
+
+const totalContext = React.createContext(0)
+
+export default totalContext
+```
+
+2. Import the component at the root of the components that will use it and create the Provider with the value that the context will carry.
+
+```
+import totalContext from "./store/total-context";
+
+
+<totalContext.Provider value={total}>
+  <Cart instrumentosS={instrumentosS} />
+  <Total />
+</totalContext.Provider>
+```
+3. Incorporate the context into your components by importing both the context itself and the useContext() hook. Establish a connection between the hook and the created context to retrieve the associated value.
+```
+import React, { useContext } from 'react'
+import totalContext from '../store/total-context'
+
+const Total = () => {
+  let total = useContext(totalContext)
+  return (
+      <div className='card'>{total}</div>
+  )
+}
+```
+
+---
 
 <h2 id='hook1'>React.memo() y useCallback()</h2>
 
 ### React.memo()
+
 ```
 export default React.memo(Button)
 ```
 
 ### useCallback()
+
 - Importante: Para que funcione, el componente al que se le aplica el useCallback debe tener useMemo()
+
 ```
 import React, { useState, useCallback } from 'react'
 import Header from './Header'
@@ -53,7 +95,6 @@ const Counter = () => {
 export default React.memo(Counter)
 ```
 
-
 - useState:
 
       const [variableName, fxToUpadate] = useState(true);
@@ -65,10 +106,10 @@ export default React.memo(Counter)
           }else{
               fxToUpadate(true);
           }
-        
+
           console.log(variableName);
       }
-      
+
 - useState to update arrays !important:
 
         const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
@@ -84,7 +125,7 @@ export default React.memo(Counter)
         useEffect(()=>{
           const timer = setTimeout(()=>{
             console.log('envia');
-            setFormIsValid(        
+            setFormIsValid(
               enteredEmail.includes('@') && enteredPassword.trim().length > 6
             );
           }, 1000);
@@ -95,7 +136,6 @@ export default React.memo(Counter)
           }
         }, [enteredEmail, enteredPassword]);
 
-      
 - useReducer simple:
 
       import { useReducer } from "react";
@@ -139,7 +179,7 @@ export default React.memo(Counter)
       }
 
       export default App;
-      
+
 - useReducer complex:
 
       import { useState, useReducer } from "react";
@@ -209,6 +249,3 @@ export default React.memo(Counter)
       }
 
       export default App;
-
-
-
