@@ -27,6 +27,6 @@ img {
     width: 100%;
     aspect-ratio: 3/2;
     object-fit: contain;
-    mix-blend-mode:color-dodge;
+    mix-blend-mode:color-burn;
 }
 ```

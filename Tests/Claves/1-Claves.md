@@ -1,0 +1,1 @@
+1. Si se va a crear o retornar un objeto después de declarada la función, este objeto debe estar entre paréntesis. Recordar la función de generar un orden random
