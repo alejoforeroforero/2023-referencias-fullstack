@@ -7,3 +7,5 @@ npm i bcryptjs
 npm i jsonwebtoken
 npm i cookie-parser
 npm i nodemailer
+npm i multer
+npm i cloudinary
