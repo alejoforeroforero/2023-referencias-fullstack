@@ -27,3 +27,19 @@ const adminSchema = new mongoose.Schema({
 module.exports = mongoose.model("Admin", adminSchema);
 
 ```
+
+2. ¿Cuál es la diferencia entr PUT y POST request?
+
+3. ¿Cómo funciona la siguiente comparación en mongoose?
+
+```
+
+const adminToken = await Token.findOne({
+    token: hashedToken,
+    expiresAt: { $gt: Date.now() },
+  });
+
+
+->  expiresAt: { $gt: Date.now() },
+
+```
